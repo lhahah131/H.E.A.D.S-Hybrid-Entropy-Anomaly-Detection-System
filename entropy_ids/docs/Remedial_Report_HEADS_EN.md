@@ -43,6 +43,7 @@ To provide an operational overview, here is the specific breakdown of how data m
 #### 🔀 H.E.A.D.S Architecture Flowchart
 This flowchart represents how the file traverses through the system, from the data extraction up to the final decision.
 
+```text
 +--------------------------------------------------+
 |              STATIC INPUT FILE & LOG            |
 +--------------------------------------------------+
@@ -104,6 +105,7 @@ This flowchart represents how the file traverses through the system, from the da
                 +-------------------------+
                 | SYSTEM LOG & REPORTING  |
                 +-------------------------+
+```
 
 ## 3. Development Methodology Process
 The development was systematically carried out through several *MLOps* stages:

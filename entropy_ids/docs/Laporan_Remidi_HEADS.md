@@ -43,6 +43,7 @@ Untuk memberikan gambaran operasional, berikut adalah rincian spesifik bagaimana
 #### 🔀 Flowchart Arsitektur H.E.A.D.S
 Diagram alur ini merepresentasikan bagaimana lalu lintas *file* bergerak melintasi sistem dari hulu (ekstraksi data) ke hilir (pengambilan keputusan rilis ancaman). (Dapat dilihat secara visual jika *markdown editor* mendukung ekstensi `mermaid`):
 
+```text
 +--------------------------------------------------+
 |           INPUT FILE STATIS & LOG               |
 +--------------------------------------------------+
@@ -104,6 +105,7 @@ Diagram alur ini merepresentasikan bagaimana lalu lintas *file* bergerak melinta
                 +-------------------------+
                 | SISTEM LOG & REPORTING |
                 +-------------------------+
+```
 
 ## 3. Proses Metodologi Pengembangan
 Pengembangan dilakukan secara sistematis melalui beberapa tahapan *MLOps*:
