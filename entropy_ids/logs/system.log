@@ -1,0 +1,543 @@
+2026-02-23 20:24:56,205 - controller.hybrid_controller - INFO - --- Starting Pipeline Execution in ADAPTIVE mode ---
+2026-02-23 20:24:56,216 - controller.hybrid_controller - INFO - Loaded 194 records from ..\entropy-malware-framework\features\expanded_dataset_v3.csv
+2026-02-23 20:24:56,224 - features.feature_engine - INFO - Extracted 14 features for 194 samples.
+2026-02-23 20:24:56,224 - models.model_engine - INFO - Training model on 194 samples...
+2026-02-23 20:24:56,530 - models.model_engine - INFO - Model trained successfully.
+2026-02-23 20:24:56,549 - thresholds.threshold_engine - INFO - Calculated Adaptive Threshold (Percentile 55): 0.0460
+2026-02-23 20:24:56,549 - controller.hybrid_controller - INFO - Final threshold applied: 0.0460
+2026-02-23 20:24:56,550 - classifiers.classifier_engine - INFO - Classifying predictions using ADAPTIVE mode thresholding.
+2026-02-23 20:24:56,557 - classifiers.classifier_engine - INFO - Benign confirmation layer active. Overridden 28 False Positives.
+2026-02-23 20:24:56,568 - evaluation.model_evaluation - INFO - Evaluated Metrics -> Precision: 0.7848, Recall: 0.9118, F1: 0.8435, FP: 17, FN: 6
+2026-02-23 20:24:56,578 - controller.hybrid_controller - INFO - Saved mode ADAPTIVE predictions to D:\malware_entropy_ml\entropy_ids\logs\predictions_adaptive.csv
+2026-02-23 20:25:08,133 - controller.hybrid_controller - INFO - --- Starting Pipeline Execution in ADAPTIVE mode ---
+2026-02-23 20:25:08,136 - controller.hybrid_controller - INFO - Loaded 194 records from ..\entropy-malware-framework\features\expanded_dataset_v3.csv
+2026-02-23 20:25:08,139 - features.feature_engine - INFO - Extracted 14 features for 194 samples.
+2026-02-23 20:25:08,139 - models.model_engine - INFO - Training model on 194 samples...
+2026-02-23 20:25:08,423 - models.model_engine - INFO - Model trained successfully.
+2026-02-23 20:25:08,442 - thresholds.threshold_engine - INFO - Calculated Adaptive Threshold (Percentile 55): 0.0460
+2026-02-23 20:25:08,442 - controller.hybrid_controller - INFO - Final threshold applied: 0.0460
+2026-02-23 20:25:08,442 - classifiers.classifier_engine - INFO - Classifying predictions using ADAPTIVE mode thresholding.
+2026-02-23 20:25:08,449 - classifiers.classifier_engine - INFO - Benign confirmation layer active. Overridden 28 False Positives.
+2026-02-23 20:25:08,455 - evaluation.model_evaluation - INFO - Evaluated Metrics -> Precision: 0.7848, Recall: 0.9118, F1: 0.8435, FP: 17, FN: 6
+2026-02-23 20:25:08,464 - controller.hybrid_controller - INFO - Saved mode ADAPTIVE predictions to D:\malware_entropy_ml\entropy_ids\logs\predictions_adaptive.csv
+2026-02-23 20:25:14,039 - controller.hybrid_controller - INFO - --- Starting Pipeline Execution in STRICT mode ---
+2026-02-23 20:25:14,042 - controller.hybrid_controller - INFO - Loaded 194 records from ..\entropy-malware-framework\features\expanded_dataset_v3.csv
+2026-02-23 20:25:14,046 - features.feature_engine - INFO - Extracted 14 features for 194 samples.
+2026-02-23 20:25:14,046 - models.model_engine - INFO - Training model on 194 samples...
+2026-02-23 20:25:14,344 - models.model_engine - INFO - Model trained successfully.
+2026-02-23 20:25:14,366 - thresholds.threshold_engine - INFO - Calculated Strict Threshold: 0.3293
+2026-02-23 20:25:14,366 - controller.hybrid_controller - INFO - Final threshold applied: 0.3293
+2026-02-23 20:25:14,366 - classifiers.classifier_engine - INFO - Classifying predictions using STRICT mode thresholding.
+2026-02-23 20:25:14,371 - classifiers.classifier_engine - INFO - Benign confirmation layer active. Overridden 21 False Positives.
+2026-02-23 20:25:14,377 - evaluation.model_evaluation - INFO - Evaluated Metrics -> Precision: 0.9194, Recall: 0.8382, F1: 0.8769, FP: 5, FN: 11
+2026-02-23 20:25:14,386 - controller.hybrid_controller - INFO - Saved mode STRICT predictions to D:\malware_entropy_ml\entropy_ids\logs\predictions_strict.csv
+2026-02-23 20:31:01,294 - controller.hybrid_controller - INFO - --- Starting Pipeline Execution in ADAPTIVE mode ---
+2026-02-23 20:31:01,308 - controller.hybrid_controller - INFO - Loaded 194 records from ..\entropy-malware-framework\features\expanded_dataset_v3.csv
+2026-02-23 20:31:01,315 - features.feature_engine - INFO - Extracted 14 features for 194 samples.
+2026-02-23 20:31:01,315 - models.model_engine - INFO - Training model on 194 samples...
+2026-02-23 20:31:01,596 - models.model_engine - INFO - Model trained successfully.
+2026-02-23 20:31:01,615 - thresholds.threshold_engine - INFO - Calculated Adaptive Threshold (Percentile 55): 0.0460
+2026-02-23 20:31:01,615 - controller.hybrid_controller - INFO - Final threshold applied: 0.0460
+2026-02-23 20:31:01,615 - classifiers.classifier_engine - INFO - Classifying predictions using ADAPTIVE mode thresholding.
+2026-02-23 20:31:01,620 - classifiers.classifier_engine - INFO - Benign confirmation layer active. Overridden 28 False Positives.
+2026-02-23 20:31:01,629 - evaluation.model_evaluation - INFO - Evaluated Metrics -> Precision: 0.7848, Recall: 0.9118, F1: 0.8435, FP: 17, FN: 6
+2026-02-23 20:31:01,637 - controller.hybrid_controller - INFO - Saved mode ADAPTIVE predictions to D:\malware_entropy_ml\entropy_ids\logs\predictions_adaptive.csv
+2026-02-23 20:31:01,638 - controller.hybrid_controller - INFO - Saved execution metadata to D:\malware_entropy_ml\entropy_ids\logs\metadata_adaptive.json
+2026-02-23 23:25:00,618 - controller.hybrid_controller - INFO - --- Starting Pipeline Execution | Action: TRAIN | Mode: ADAPTIVE ---
+2026-02-23 23:25:00,629 - controller.hybrid_controller - INFO - Loaded 33 records from D:\malware_entropy_ml\entropy_ids\data\features\master_features.csv
+2026-02-23 23:25:00,636 - core.feature_engine - INFO - Extracted 14 features for 33 samples.
+2026-02-23 23:25:00,636 - core.model_engine - INFO - Training model on 33 samples...
+2026-02-23 23:25:00,933 - core.model_engine - INFO - Model trained successfully.
+2026-02-23 23:25:01,014 - core.model_engine - INFO - Model and scaler successfully saved to D:\malware_entropy_ml\entropy_ids\models\saved_models\iso_v2.pkl (Features: 14).
+2026-02-23 23:25:01,032 - core.threshold_engine - INFO - Calculated Adaptive Threshold (Percentile 55): 0.0686
+2026-02-23 23:25:01,032 - controller.hybrid_controller - INFO - Final threshold applied: 0.0686
+2026-02-23 23:25:01,032 - core.classifier_engine - INFO - Classifying predictions using ADAPTIVE mode thresholding.
+2026-02-23 23:25:01,033 - core.classifier_engine - INFO - Benign confirmation layer active. Overridden 1 False Positives.
+2026-02-23 23:25:01,042 - core.evaluation_engine - INFO - Evaluated Metrics -> Precision: 0.5294, Recall: 0.9000, F1: 0.6667, FP: 8, FN: 1
+2026-02-23 23:25:01,046 - controller.hybrid_controller - INFO - Saved mode TRAIN_ADAPTIVE predictions to D:\malware_entropy_ml\entropy_ids\logs\predictions_train_adaptive.csv
+2026-02-23 23:25:01,048 - controller.hybrid_controller - INFO - Saved execution metadata to D:\malware_entropy_ml\entropy_ids\logs\metadata_train_adaptive.json
+2026-02-23 23:25:06,135 - controller.hybrid_controller - INFO - --- Starting Pipeline Execution | Action: INFERENCE | Mode: ADAPTIVE ---
+2026-02-23 23:25:06,140 - controller.hybrid_controller - INFO - Loaded 33 records from D:\malware_entropy_ml\entropy_ids\data\features\master_features.csv
+2026-02-23 23:25:06,143 - core.feature_engine - INFO - Extracted 14 features for 33 samples.
+2026-02-23 23:25:06,144 - core.model_engine - INFO - Loading persistent model from D:\malware_entropy_ml\entropy_ids\models\saved_models\iso_v2.pkl...
+2026-02-23 23:25:06,203 - core.model_engine - INFO - Model loaded successfully. Expected features: 14.
+2026-02-23 23:25:06,221 - core.threshold_engine - INFO - Calculated Adaptive Threshold (Percentile 55): 0.0686
+2026-02-23 23:25:06,222 - controller.hybrid_controller - INFO - Final threshold applied: 0.0686
+2026-02-23 23:25:06,222 - core.classifier_engine - INFO - Classifying predictions using ADAPTIVE mode thresholding.
+2026-02-23 23:25:06,224 - core.classifier_engine - INFO - Benign confirmation layer active. Overridden 1 False Positives.
+2026-02-23 23:25:06,231 - core.evaluation_engine - INFO - Evaluated Metrics -> Precision: 0.5294, Recall: 0.9000, F1: 0.6667, FP: 8, FN: 1
+2026-02-23 23:25:06,237 - controller.hybrid_controller - INFO - Saved mode INFERENCE_ADAPTIVE predictions to D:\malware_entropy_ml\entropy_ids\logs\predictions_inference_adaptive.csv
+2026-02-23 23:25:06,238 - controller.hybrid_controller - INFO - Saved execution metadata to D:\malware_entropy_ml\entropy_ids\logs\metadata_inference_adaptive.json
+2026-02-23 23:33:32,085 - controller.hybrid_controller - INFO - --- Starting Pipeline Execution | Action: TRAIN | Mode: ADAPTIVE ---
+2026-02-23 23:33:32,093 - controller.hybrid_controller - INFO - Loaded 33 records from D:\malware_entropy_ml\entropy_ids\data\features\master_features.csv
+2026-02-23 23:33:32,099 - core.feature_engine - INFO - Extracted 14 features for 33 samples.
+2026-02-23 23:33:32,105 - controller.hybrid_controller - INFO - Splitting data -> Train: 23, Test: 10
+2026-02-23 23:33:32,105 - core.model_engine - INFO - Training model on 23 samples...
+2026-02-23 23:33:32,391 - core.model_engine - INFO - Model trained successfully.
+2026-02-23 23:33:32,461 - core.model_engine - INFO - Model and scaler successfully saved to D:\malware_entropy_ml\entropy_ids\models\saved_models\iso_v2.pkl (Features: 14).
+2026-02-23 23:33:32,480 - core.threshold_engine - INFO - Calculated Adaptive Threshold (Percentile 55): 0.0668
+2026-02-23 23:33:32,480 - controller.hybrid_controller - INFO - Final threshold applied: 0.0668
+2026-02-23 23:33:32,480 - core.classifier_engine - INFO - Classifying predictions using ADAPTIVE mode thresholding.
+2026-02-23 23:33:32,481 - core.classifier_engine - INFO - Benign confirmation layer active. Overridden 0 False Positives.
+2026-02-23 23:33:32,490 - core.evaluation_engine - INFO - Evaluated Metrics -> Precision: 0.6000, Recall: 1.0000, F1: 0.7500, FP: 2, FN: 0
+2026-02-23 23:33:32,494 - controller.hybrid_controller - INFO - Saved mode TRAIN predictions to D:\malware_entropy_ml\entropy_ids\logs\predictions_train_adaptive.csv
+2026-02-23 23:33:32,494 - controller.hybrid_controller - INFO - Saved execution metadata to D:\malware_entropy_ml\entropy_ids\logs\metadata_train_adaptive.json
+2026-02-23 23:34:44,421 - controller.hybrid_controller - INFO - --- Starting Pipeline Execution | Action: CV | Mode: ADAPTIVE ---
+2026-02-23 23:34:44,430 - controller.hybrid_controller - INFO - Loaded 33 records from D:\malware_entropy_ml\entropy_ids\data\features\master_features.csv
+2026-02-23 23:34:44,435 - core.feature_engine - INFO - Extracted 14 features for 33 samples.
+2026-02-23 23:34:44,435 - controller.hybrid_controller - INFO - Starting 5-Fold Cross Validation...
+2026-02-23 23:34:44,440 - core.model_engine - INFO - Training model on 26 samples...
+2026-02-23 23:34:44,719 - core.model_engine - INFO - Model trained successfully.
+2026-02-23 23:34:44,736 - core.threshold_engine - INFO - Calculated Adaptive Threshold (Percentile 55): 0.0695
+2026-02-23 23:34:44,736 - core.classifier_engine - INFO - Classifying predictions using ADAPTIVE mode thresholding.
+2026-02-23 23:34:44,737 - core.classifier_engine - INFO - Benign confirmation layer active. Overridden 0 False Positives.
+2026-02-23 23:34:44,745 - core.evaluation_engine - INFO - Evaluated Metrics -> Precision: 0.5000, Recall: 1.0000, F1: 0.6667, FP: 2, FN: 0
+2026-02-23 23:34:44,746 - core.model_engine - INFO - Training model on 26 samples...
+2026-02-23 23:34:45,053 - core.model_engine - INFO - Model trained successfully.
+2026-02-23 23:34:45,070 - core.threshold_engine - INFO - Calculated Adaptive Threshold (Percentile 55): 0.0237
+2026-02-23 23:34:45,070 - core.classifier_engine - INFO - Classifying predictions using ADAPTIVE mode thresholding.
+2026-02-23 23:34:45,072 - core.classifier_engine - INFO - Benign confirmation layer active. Overridden 0 False Positives.
+2026-02-23 23:34:45,077 - core.evaluation_engine - INFO - Evaluated Metrics -> Precision: 0.5000, Recall: 1.0000, F1: 0.6667, FP: 2, FN: 0
+2026-02-23 23:34:45,078 - core.model_engine - INFO - Training model on 26 samples...
+2026-02-23 23:34:45,378 - core.model_engine - INFO - Model trained successfully.
+2026-02-23 23:34:45,395 - core.threshold_engine - INFO - Calculated Adaptive Threshold (Percentile 55): 0.0668
+2026-02-23 23:34:45,395 - core.classifier_engine - INFO - Classifying predictions using ADAPTIVE mode thresholding.
+2026-02-23 23:34:45,396 - core.classifier_engine - INFO - Benign confirmation layer active. Overridden 1 False Positives.
+2026-02-23 23:34:45,400 - core.evaluation_engine - INFO - Evaluated Metrics -> Precision: 0.3333, Recall: 0.5000, F1: 0.4000, FP: 2, FN: 1
+2026-02-23 23:34:45,400 - core.model_engine - INFO - Training model on 27 samples...
+2026-02-23 23:34:45,688 - core.model_engine - INFO - Model trained successfully.
+2026-02-23 23:34:45,705 - core.threshold_engine - INFO - Calculated Adaptive Threshold (Percentile 55): 0.0603
+2026-02-23 23:34:45,705 - core.classifier_engine - INFO - Classifying predictions using ADAPTIVE mode thresholding.
+2026-02-23 23:34:45,705 - core.classifier_engine - INFO - Benign confirmation layer active. Overridden 0 False Positives.
+2026-02-23 23:34:45,711 - core.evaluation_engine - INFO - Evaluated Metrics -> Precision: 0.6667, Recall: 1.0000, F1: 0.8000, FP: 1, FN: 0
+2026-02-23 23:34:45,711 - core.model_engine - INFO - Training model on 27 samples...
+2026-02-23 23:34:46,002 - core.model_engine - INFO - Model trained successfully.
+2026-02-23 23:34:46,019 - core.threshold_engine - INFO - Calculated Adaptive Threshold (Percentile 55): -0.0165
+2026-02-23 23:34:46,019 - core.classifier_engine - INFO - Classifying predictions using ADAPTIVE mode thresholding.
+2026-02-23 23:34:46,020 - core.classifier_engine - INFO - Benign confirmation layer active. Overridden 0 False Positives.
+2026-02-23 23:34:46,025 - core.evaluation_engine - INFO - Evaluated Metrics -> Precision: 0.6667, Recall: 1.0000, F1: 0.8000, FP: 1, FN: 0
+2026-02-23 23:34:46,025 - controller.hybrid_controller - INFO - CV completed. Average metrics generated.
+2026-02-23 23:44:11,926 - controller.hybrid_controller - INFO - --- Starting Pipeline Execution | Action: INFERENCE | Mode: ADAPTIVE | Dynamic Threshold: True ---
+2026-02-23 23:44:11,932 - controller.hybrid_controller - INFO - Loaded 33 records from D:\malware_entropy_ml\entropy_ids\data\features\master_features.csv
+2026-02-23 23:44:11,938 - core.feature_engine - INFO - Extracted 14 features for 33 samples.
+2026-02-23 23:44:11,939 - core.model_engine - INFO - Loading persistent model from D:\malware_entropy_ml\entropy_ids\models\saved_models\iso_v2.pkl...
+2026-02-23 23:44:12,016 - core.model_engine - INFO - Model loaded successfully. Expected features: 14.
+2026-02-23 23:44:12,034 - core.threshold_engine - INFO - Calculated Adaptive Threshold (Percentile 55): 0.0648
+2026-02-23 23:44:12,034 - controller.hybrid_controller - INFO - Final threshold applied: 0.0648
+2026-02-23 23:44:12,035 - controller.hybrid_controller - WARNING - Dynamic threshold recalculated during inference. Experimental mode active. Old: 0.0648, New: 0.0648
+2026-02-23 23:44:12,035 - core.classifier_engine - INFO - Classifying predictions using ADAPTIVE mode thresholding.
+2026-02-23 23:44:12,037 - core.classifier_engine - INFO - Benign confirmation layer active. Overridden 1 False Positives.
+2026-02-23 23:44:12,043 - core.evaluation_engine - INFO - Evaluated Metrics -> Precision: 0.5294, Recall: 0.9000, F1: 0.6667, FP: 8, FN: 1
+2026-02-23 23:44:12,050 - controller.hybrid_controller - INFO - Saved mode INFERENCE predictions to D:\malware_entropy_ml\entropy_ids\logs\predictions_inference_adaptive.csv
+2026-02-23 23:44:12,051 - controller.hybrid_controller - INFO - Saved execution metadata to D:\malware_entropy_ml\entropy_ids\logs\metadata_inference_adaptive.json
+2026-02-23 23:45:58,994 - controller.hybrid_controller - INFO - --- Starting Pipeline Execution | Action: INFERENCE | Mode: ADAPTIVE | Dynamic Threshold: False ---
+2026-02-23 23:45:59,002 - controller.hybrid_controller - INFO - Loaded 33 records from D:\malware_entropy_ml\entropy_ids\data\features\master_features.csv
+2026-02-23 23:45:59,007 - core.feature_engine - INFO - Extracted 14 features for 33 samples.
+2026-02-23 23:45:59,007 - core.model_engine - INFO - Loading persistent model from D:\malware_entropy_ml\entropy_ids\models\saved_models\iso_v2.pkl...
+2026-02-23 23:45:59,105 - core.model_engine - INFO - Model loaded successfully. Expected features: 14.
+2026-02-23 23:45:59,143 - core.threshold_engine - INFO - Calculated Adaptive Threshold (Percentile 55): 0.0648
+2026-02-23 23:45:59,143 - controller.hybrid_controller - INFO - Final threshold applied: 0.0648
+2026-02-23 23:45:59,143 - core.classifier_engine - INFO - Classifying predictions using ADAPTIVE mode thresholding.
+2026-02-23 23:45:59,145 - core.classifier_engine - INFO - Benign confirmation layer active. Overridden 1 False Positives.
+2026-02-23 23:45:59,156 - core.evaluation_engine - INFO - Evaluated Metrics -> Precision: 0.5294, Recall: 0.9000, F1: 0.6667, FP: 8, FN: 1
+2026-02-23 23:45:59,162 - controller.hybrid_controller - INFO - Saved mode INFERENCE predictions to D:\malware_entropy_ml\entropy_ids\logs\predictions_inference_adaptive.csv
+2026-02-23 23:45:59,163 - controller.hybrid_controller - INFO - Saved execution metadata to D:\malware_entropy_ml\entropy_ids\logs\metadata_inference_adaptive.json
+2026-02-23 23:50:46,766 - controller.hybrid_controller - INFO - --- Starting Pipeline Execution | Action: TRAIN | Mode: ADAPTIVE | Dynamic Threshold: False ---
+2026-02-23 23:50:46,777 - controller.hybrid_controller - INFO - Loaded 33 records from D:\malware_entropy_ml\entropy_ids\data\features\master_features.csv
+2026-02-23 23:50:46,784 - core.feature_engine - INFO - Extracted 14 features for 33 samples.
+2026-02-23 23:50:46,791 - controller.hybrid_controller - INFO - Splitting data -> Train: 23, Test: 10
+2026-02-23 23:50:46,791 - core.model_engine - INFO - Training model on 23 samples...
+2026-02-23 23:50:47,090 - core.model_engine - INFO - Model trained successfully.
+2026-02-23 23:50:47,161 - core.model_engine - INFO - Model and scaler successfully saved to D:\malware_entropy_ml\entropy_ids\models\saved_models\iso_v2.pkl (Features: 14).
+2026-02-23 23:50:47,178 - core.threshold_engine - INFO - Calculated Adaptive Threshold (Percentile 55): 0.0668
+2026-02-23 23:50:47,178 - controller.hybrid_controller - INFO - Final threshold applied: 0.0668
+2026-02-23 23:50:47,180 - controller.hybrid_controller - INFO - Saved trained threshold metadata to D:\malware_entropy_ml\entropy_ids\models\saved_models\iso_v2_metadata.json
+2026-02-23 23:50:47,180 - core.classifier_engine - INFO - Classifying predictions using ADAPTIVE mode thresholding.
+2026-02-23 23:50:47,181 - core.classifier_engine - INFO - Benign confirmation layer active. Overridden 0 False Positives.
+2026-02-23 23:50:47,190 - core.evaluation_engine - INFO - Evaluated Metrics -> Precision: 0.6000, Recall: 1.0000, F1: 0.7500, FP: 2, FN: 0
+2026-02-23 23:50:47,195 - controller.hybrid_controller - INFO - Saved mode TRAIN predictions to D:\malware_entropy_ml\entropy_ids\logs\predictions_train_adaptive.csv
+2026-02-23 23:50:47,197 - controller.hybrid_controller - INFO - Saved execution metadata to D:\malware_entropy_ml\entropy_ids\logs\metadata_train_adaptive.json
+2026-02-23 23:50:50,509 - controller.hybrid_controller - INFO - --- Starting Pipeline Execution | Action: INFERENCE | Mode: ADAPTIVE | Dynamic Threshold: False ---
+2026-02-23 23:50:50,512 - controller.hybrid_controller - INFO - Loaded 33 records from D:\malware_entropy_ml\entropy_ids\data\features\master_features.csv
+2026-02-23 23:50:50,515 - core.feature_engine - INFO - Extracted 14 features for 33 samples.
+2026-02-23 23:50:50,515 - core.model_engine - INFO - Loading persistent model from D:\malware_entropy_ml\entropy_ids\models\saved_models\iso_v2.pkl...
+2026-02-23 23:50:50,590 - core.model_engine - INFO - Model loaded successfully. Expected features: 14.
+2026-02-23 23:50:50,607 - controller.hybrid_controller - INFO - Loaded persisted threshold from training metadata.
+2026-02-23 23:50:50,607 - controller.hybrid_controller - INFO - Final threshold applied: 0.0668
+2026-02-23 23:50:50,607 - core.classifier_engine - INFO - Classifying predictions using ADAPTIVE mode thresholding.
+2026-02-23 23:50:50,609 - core.classifier_engine - INFO - Benign confirmation layer active. Overridden 1 False Positives.
+2026-02-23 23:50:50,616 - core.evaluation_engine - INFO - Evaluated Metrics -> Precision: 0.5000, Recall: 0.9000, F1: 0.6429, FP: 9, FN: 1
+2026-02-23 23:50:50,622 - controller.hybrid_controller - INFO - Saved mode INFERENCE predictions to D:\malware_entropy_ml\entropy_ids\logs\predictions_inference_adaptive.csv
+2026-02-23 23:50:50,622 - controller.hybrid_controller - INFO - Saved execution metadata to D:\malware_entropy_ml\entropy_ids\logs\metadata_inference_adaptive.json
+2026-02-24 17:33:23,199 - controller.hybrid_controller - INFO - --- Starting Pipeline Execution | Action: TRAIN | Mode: ADAPTIVE | Dynamic Threshold: False ---
+2026-02-24 17:33:23,214 - controller.hybrid_controller - INFO - Loaded 191 records from D:\malware_entropy_ml\entropy_ids\data\synthetic\expanded_dataset_v2.csv
+2026-02-24 17:33:23,221 - core.feature_engine - INFO - Extracted 14 features for 191 samples.
+2026-02-24 17:33:23,226 - controller.hybrid_controller - INFO - Splitting data -> Train: 133, Test: 58
+2026-02-24 17:33:23,227 - core.model_engine - INFO - Training model on 133 samples...
+2026-02-24 17:33:23,533 - core.model_engine - INFO - Model trained successfully.
+2026-02-24 17:33:23,615 - core.model_engine - INFO - Model and scaler successfully saved to D:\malware_entropy_ml\entropy_ids\models\saved_models\iso_v2.pkl (Features: 14).
+2026-02-24 17:33:23,631 - core.threshold_engine - INFO - Calculated Adaptive Threshold (Percentile 55): 0.0316
+2026-02-24 17:33:23,631 - controller.hybrid_controller - INFO - Final threshold applied: 0.0316
+2026-02-24 17:33:23,631 - controller.hybrid_controller - INFO - Saved trained threshold metadata to D:\malware_entropy_ml\entropy_ids\models\saved_models\iso_v2_metadata.json
+2026-02-24 17:33:23,633 - core.classifier_engine - INFO - Classifying predictions using ADAPTIVE mode thresholding.
+2026-02-24 17:33:23,635 - core.classifier_engine - INFO - Benign confirmation layer active. Overridden 11 False Positives.
+2026-02-24 17:33:23,644 - core.evaluation_engine - INFO - Evaluated Metrics -> Precision: 0.9048, Recall: 0.9500, F1: 0.9268, FP: 2, FN: 1
+2026-02-24 17:33:23,652 - controller.hybrid_controller - INFO - Saved mode TRAIN predictions to D:\malware_entropy_ml\entropy_ids\logs\predictions_train_adaptive.csv
+2026-02-24 17:33:23,653 - controller.hybrid_controller - INFO - Saved execution metadata to D:\malware_entropy_ml\entropy_ids\logs\metadata_train_adaptive.json
+2026-02-24 17:33:29,933 - controller.hybrid_controller - INFO - --- Starting Pipeline Execution | Action: CV | Mode: ADAPTIVE | Dynamic Threshold: False ---
+2026-02-24 17:33:29,937 - controller.hybrid_controller - INFO - Loaded 191 records from D:\malware_entropy_ml\entropy_ids\data\synthetic\expanded_dataset_v2.csv
+2026-02-24 17:33:29,940 - core.feature_engine - INFO - Extracted 14 features for 191 samples.
+2026-02-24 17:33:29,940 - controller.hybrid_controller - INFO - Starting 5-Fold Cross Validation...
+2026-02-24 17:33:29,942 - core.model_engine - INFO - Training model on 152 samples...
+2026-02-24 17:33:30,232 - core.model_engine - INFO - Model trained successfully.
+2026-02-24 17:33:30,249 - core.threshold_engine - INFO - Calculated Adaptive Threshold (Percentile 55): 0.0227
+2026-02-24 17:33:30,249 - core.classifier_engine - INFO - Classifying predictions using ADAPTIVE mode thresholding.
+2026-02-24 17:33:30,251 - core.classifier_engine - INFO - Benign confirmation layer active. Overridden 6 False Positives.
+2026-02-24 17:33:30,257 - core.evaluation_engine - INFO - Evaluated Metrics -> Precision: 0.8667, Recall: 0.9286, F1: 0.8966, FP: 2, FN: 1
+2026-02-24 17:33:30,258 - core.model_engine - INFO - Training model on 153 samples...
+2026-02-24 17:33:30,542 - core.model_engine - INFO - Model trained successfully.
+2026-02-24 17:33:30,562 - core.threshold_engine - INFO - Calculated Adaptive Threshold (Percentile 55): 0.0521
+2026-02-24 17:33:30,563 - core.classifier_engine - INFO - Classifying predictions using ADAPTIVE mode thresholding.
+2026-02-24 17:33:30,564 - core.classifier_engine - INFO - Benign confirmation layer active. Overridden 4 False Positives.
+2026-02-24 17:33:30,571 - core.evaluation_engine - INFO - Evaluated Metrics -> Precision: 0.6471, Recall: 0.8462, F1: 0.7333, FP: 6, FN: 2
+2026-02-24 17:33:30,572 - core.model_engine - INFO - Training model on 153 samples...
+2026-02-24 17:33:30,849 - core.model_engine - INFO - Model trained successfully.
+2026-02-24 17:33:30,864 - core.threshold_engine - INFO - Calculated Adaptive Threshold (Percentile 55): 0.0320
+2026-02-24 17:33:30,865 - core.classifier_engine - INFO - Classifying predictions using ADAPTIVE mode thresholding.
+2026-02-24 17:33:30,866 - core.classifier_engine - INFO - Benign confirmation layer active. Overridden 4 False Positives.
+2026-02-24 17:33:30,873 - core.evaluation_engine - INFO - Evaluated Metrics -> Precision: 0.7059, Recall: 0.9231, F1: 0.8000, FP: 5, FN: 1
+2026-02-24 17:33:30,873 - core.model_engine - INFO - Training model on 153 samples...
+2026-02-24 17:33:31,150 - core.model_engine - INFO - Model trained successfully.
+2026-02-24 17:33:31,169 - core.threshold_engine - INFO - Calculated Adaptive Threshold (Percentile 55): 0.0553
+2026-02-24 17:33:31,169 - core.classifier_engine - INFO - Classifying predictions using ADAPTIVE mode thresholding.
+2026-02-24 17:33:31,171 - core.classifier_engine - INFO - Benign confirmation layer active. Overridden 2 False Positives.
+2026-02-24 17:33:31,177 - core.evaluation_engine - INFO - Evaluated Metrics -> Precision: 0.6842, Recall: 1.0000, F1: 0.8125, FP: 6, FN: 0
+2026-02-24 17:33:31,177 - core.model_engine - INFO - Training model on 153 samples...
+2026-02-24 17:33:31,453 - core.model_engine - INFO - Model trained successfully.
+2026-02-24 17:33:31,470 - core.threshold_engine - INFO - Calculated Adaptive Threshold (Percentile 55): 0.0301
+2026-02-24 17:33:31,470 - core.classifier_engine - INFO - Classifying predictions using ADAPTIVE mode thresholding.
+2026-02-24 17:33:31,472 - core.classifier_engine - INFO - Benign confirmation layer active. Overridden 5 False Positives.
+2026-02-24 17:33:31,478 - core.evaluation_engine - INFO - Evaluated Metrics -> Precision: 0.8125, Recall: 0.9286, F1: 0.8667, FP: 3, FN: 1
+2026-02-24 17:33:31,478 - controller.hybrid_controller - INFO - CV completed. Average metrics generated.
+2026-02-24 17:33:39,328 - controller.hybrid_controller - INFO - --- Starting Pipeline Execution | Action: INFERENCE | Mode: ADAPTIVE | Dynamic Threshold: False ---
+2026-02-24 17:33:39,331 - controller.hybrid_controller - INFO - Loaded 33 records from D:\malware_entropy_ml\entropy_ids\data\raw\master_features.csv
+2026-02-24 17:33:39,331 - core.feature_engine - INFO - Extracted 14 features for 33 samples.
+2026-02-24 17:33:39,331 - core.model_engine - INFO - Loading persistent model from D:\malware_entropy_ml\entropy_ids\models\saved_models\iso_v2.pkl...
+2026-02-24 17:33:39,419 - core.model_engine - INFO - Model loaded successfully. Expected features: 14.
+2026-02-24 17:33:39,449 - controller.hybrid_controller - INFO - Loaded persisted threshold from training metadata.
+2026-02-24 17:33:39,449 - controller.hybrid_controller - INFO - Final threshold applied: 0.0316
+2026-02-24 17:33:39,449 - core.classifier_engine - INFO - Classifying predictions using ADAPTIVE mode thresholding.
+2026-02-24 17:33:39,450 - core.classifier_engine - INFO - Benign confirmation layer active. Overridden 0 False Positives.
+2026-02-24 17:33:39,457 - core.evaluation_engine - INFO - Evaluated Metrics -> Precision: 0.3846, Recall: 0.5000, F1: 0.4348, FP: 8, FN: 5
+2026-02-24 17:33:39,461 - controller.hybrid_controller - INFO - Saved mode INFERENCE predictions to D:\malware_entropy_ml\entropy_ids\logs\predictions_inference_adaptive.csv
+2026-02-24 17:33:39,463 - controller.hybrid_controller - INFO - Saved execution metadata to D:\malware_entropy_ml\entropy_ids\logs\metadata_inference_adaptive.json
+2026-02-24 17:50:08,392 - controller.hybrid_controller - INFO - --- Starting Pipeline Execution | Action: TRAIN | Mode: ADAPTIVE | Dynamic Threshold: False ---
+2026-02-24 17:50:08,403 - controller.hybrid_controller - INFO - Loaded 293 records from D:\malware_entropy_ml\entropy_ids\data\synthetic\expanded_dataset_v3.csv
+2026-02-24 17:50:08,411 - core.feature_engine - INFO - Extracted 14 features for 293 samples.
+2026-02-24 17:50:08,417 - controller.hybrid_controller - INFO - Splitting data -> Train: 205, Test: 88
+2026-02-24 17:50:08,417 - core.model_engine - INFO - Training model on 205 samples...
+2026-02-24 17:50:08,710 - core.model_engine - INFO - Model trained successfully.
+2026-02-24 17:50:08,786 - core.model_engine - INFO - Model and scaler successfully saved to D:\malware_entropy_ml\entropy_ids\models\saved_models\iso_v2.pkl (Features: 14).
+2026-02-24 17:50:08,804 - core.threshold_engine - INFO - Calculated Adaptive Threshold (Percentile 55): 0.0327
+2026-02-24 17:50:08,804 - controller.hybrid_controller - INFO - Final threshold applied: 0.0327
+2026-02-24 17:50:08,805 - controller.hybrid_controller - INFO - Saved trained threshold metadata to D:\malware_entropy_ml\entropy_ids\models\saved_models\iso_v2_metadata.json
+2026-02-24 17:50:08,806 - core.classifier_engine - INFO - Classifying predictions using ADAPTIVE mode thresholding.
+2026-02-24 17:50:08,808 - core.classifier_engine - INFO - Benign confirmation layer active. Overridden 1 False Positives.
+2026-02-24 17:50:08,816 - core.evaluation_engine - INFO - Evaluated Metrics -> Precision: 0.6383, Recall: 0.9375, F1: 0.7595, FP: 17, FN: 2
+2026-02-24 17:50:08,822 - controller.hybrid_controller - INFO - Saved mode TRAIN predictions to D:\malware_entropy_ml\entropy_ids\logs\predictions_train_adaptive.csv
+2026-02-24 17:50:08,823 - controller.hybrid_controller - INFO - Saved execution metadata to D:\malware_entropy_ml\entropy_ids\logs\metadata_train_adaptive.json
+2026-02-24 17:50:10,498 - controller.hybrid_controller - INFO - --- Starting Pipeline Execution | Action: CV | Mode: ADAPTIVE | Dynamic Threshold: False ---
+2026-02-24 17:50:10,502 - controller.hybrid_controller - INFO - Loaded 293 records from D:\malware_entropy_ml\entropy_ids\data\synthetic\expanded_dataset_v3.csv
+2026-02-24 17:50:10,504 - core.feature_engine - INFO - Extracted 14 features for 293 samples.
+2026-02-24 17:50:10,505 - controller.hybrid_controller - INFO - Starting 5-Fold Cross Validation...
+2026-02-24 17:50:10,506 - core.model_engine - INFO - Training model on 234 samples...
+2026-02-24 17:50:10,793 - core.model_engine - INFO - Model trained successfully.
+2026-02-24 17:50:10,809 - core.threshold_engine - INFO - Calculated Adaptive Threshold (Percentile 55): 0.0346
+2026-02-24 17:50:10,809 - core.classifier_engine - INFO - Classifying predictions using ADAPTIVE mode thresholding.
+2026-02-24 17:50:10,812 - core.classifier_engine - INFO - Benign confirmation layer active. Overridden 1 False Positives.
+2026-02-24 17:50:10,819 - core.evaluation_engine - INFO - Evaluated Metrics -> Precision: 0.6774, Recall: 0.9545, F1: 0.7925, FP: 10, FN: 1
+2026-02-24 17:50:10,819 - core.model_engine - INFO - Training model on 234 samples...
+2026-02-24 17:50:11,099 - core.model_engine - INFO - Model trained successfully.
+2026-02-24 17:50:11,117 - core.threshold_engine - INFO - Calculated Adaptive Threshold (Percentile 55): 0.0395
+2026-02-24 17:50:11,117 - core.classifier_engine - INFO - Classifying predictions using ADAPTIVE mode thresholding.
+2026-02-24 17:50:11,119 - core.classifier_engine - INFO - Benign confirmation layer active. Overridden 0 False Positives.
+2026-02-24 17:50:11,124 - core.evaluation_engine - INFO - Evaluated Metrics -> Precision: 0.6875, Recall: 1.0000, F1: 0.8148, FP: 10, FN: 0
+2026-02-24 17:50:11,125 - core.model_engine - INFO - Training model on 234 samples...
+2026-02-24 17:50:11,424 - core.model_engine - INFO - Model trained successfully.
+2026-02-24 17:50:11,443 - core.threshold_engine - INFO - Calculated Adaptive Threshold (Percentile 55): 0.0343
+2026-02-24 17:50:11,443 - core.classifier_engine - INFO - Classifying predictions using ADAPTIVE mode thresholding.
+2026-02-24 17:50:11,445 - core.classifier_engine - INFO - Benign confirmation layer active. Overridden 1 False Positives.
+2026-02-24 17:50:11,450 - core.evaluation_engine - INFO - Evaluated Metrics -> Precision: 0.6452, Recall: 0.9524, F1: 0.7692, FP: 11, FN: 1
+2026-02-24 17:50:11,452 - core.model_engine - INFO - Training model on 235 samples...
+2026-02-24 17:50:11,743 - core.model_engine - INFO - Model trained successfully.
+2026-02-24 17:50:11,759 - core.threshold_engine - INFO - Calculated Adaptive Threshold (Percentile 55): 0.0342
+2026-02-24 17:50:11,760 - core.classifier_engine - INFO - Classifying predictions using ADAPTIVE mode thresholding.
+2026-02-24 17:50:11,762 - core.classifier_engine - INFO - Benign confirmation layer active. Overridden 0 False Positives.
+2026-02-24 17:50:11,768 - core.evaluation_engine - INFO - Evaluated Metrics -> Precision: 0.5938, Recall: 0.9048, F1: 0.7170, FP: 13, FN: 2
+2026-02-24 17:50:11,768 - core.model_engine - INFO - Training model on 235 samples...
+2026-02-24 17:50:12,056 - core.model_engine - INFO - Model trained successfully.
+2026-02-24 17:50:12,073 - core.threshold_engine - INFO - Calculated Adaptive Threshold (Percentile 55): 0.0421
+2026-02-24 17:50:12,074 - core.classifier_engine - INFO - Classifying predictions using ADAPTIVE mode thresholding.
+2026-02-24 17:50:12,076 - core.classifier_engine - INFO - Benign confirmation layer active. Overridden 2 False Positives.
+2026-02-24 17:50:12,080 - core.evaluation_engine - INFO - Evaluated Metrics -> Precision: 0.6667, Recall: 0.9524, F1: 0.7843, FP: 10, FN: 1
+2026-02-24 17:50:12,081 - controller.hybrid_controller - INFO - CV completed. Average metrics generated.
+2026-02-24 17:50:13,949 - controller.hybrid_controller - INFO - --- Starting Pipeline Execution | Action: INFERENCE | Mode: ADAPTIVE | Dynamic Threshold: False ---
+2026-02-24 17:50:13,954 - controller.hybrid_controller - INFO - Loaded 33 records from D:\malware_entropy_ml\entropy_ids\data\raw\master_features.csv
+2026-02-24 17:50:13,956 - core.feature_engine - INFO - Extracted 14 features for 33 samples.
+2026-02-24 17:50:13,957 - core.model_engine - INFO - Loading persistent model from D:\malware_entropy_ml\entropy_ids\models\saved_models\iso_v2.pkl...
+2026-02-24 17:50:14,039 - core.model_engine - INFO - Model loaded successfully. Expected features: 14.
+2026-02-24 17:50:14,069 - controller.hybrid_controller - INFO - Loaded persisted threshold from training metadata.
+2026-02-24 17:50:14,069 - controller.hybrid_controller - INFO - Final threshold applied: 0.0327
+2026-02-24 17:50:14,070 - core.classifier_engine - INFO - Classifying predictions using ADAPTIVE mode thresholding.
+2026-02-24 17:50:14,072 - core.classifier_engine - INFO - Benign confirmation layer active. Overridden 1 False Positives.
+2026-02-24 17:50:14,077 - core.evaluation_engine - INFO - Evaluated Metrics -> Precision: 0.5714, Recall: 0.8000, F1: 0.6667, FP: 6, FN: 2
+2026-02-24 17:50:14,082 - controller.hybrid_controller - INFO - Saved mode INFERENCE predictions to D:\malware_entropy_ml\entropy_ids\logs\predictions_inference_adaptive.csv
+2026-02-24 17:50:14,083 - controller.hybrid_controller - INFO - Saved execution metadata to D:\malware_entropy_ml\entropy_ids\logs\metadata_inference_adaptive.json
+2026-02-24 22:12:54,265 - controller.hybrid_controller - INFO - --- Starting Pipeline Execution | Action: TRAIN | Mode: ADAPTIVE | Dynamic Threshold: False ---
+2026-02-24 22:12:54,271 - controller.hybrid_controller - INFO - Loaded 293 records from D:\malware_entropy_ml\entropy_ids\data\synthetic\expanded_dataset_v3.csv
+2026-02-24 22:12:54,275 - core.feature_engine - INFO - Extracted 14 features for 293 samples.
+2026-02-24 22:12:54,279 - controller.hybrid_controller - INFO - Splitting data -> Train: 205, Test: 88
+2026-02-24 22:12:54,280 - core.model_engine - INFO - Training model on 205 samples...
+2026-02-24 22:12:54,592 - core.model_engine - INFO - Model trained successfully.
+2026-02-24 22:12:54,671 - core.model_engine - INFO - Model and scaler successfully saved to D:\malware_entropy_ml\entropy_ids\models\saved_models\iso_v2.pkl (Features: 14).
+2026-02-24 22:12:54,689 - core.threshold_engine - INFO - Calculated Adaptive Threshold (Percentile 55): 0.0327
+2026-02-24 22:12:54,689 - controller.hybrid_controller - INFO - Final threshold applied: 0.0327
+2026-02-24 22:12:54,691 - controller.hybrid_controller - INFO - Saved trained threshold metadata to D:\malware_entropy_ml\entropy_ids\models\saved_models\iso_v2_metadata.json
+2026-02-24 22:12:54,691 - core.classifier_engine - INFO - Classifying predictions using ADAPTIVE mode thresholding.
+2026-02-24 22:12:54,695 - core.classifier_engine - INFO - Benign confirmation layer active. Overridden 1 False Positives.
+2026-02-24 22:12:54,706 - core.evaluation_engine - INFO - Evaluated Metrics -> Precision: 0.6383, Recall: 0.9375, F1: 0.7595, FP: 17, FN: 2
+2026-02-24 22:12:54,712 - controller.hybrid_controller - INFO - Saved mode TRAIN predictions to D:\malware_entropy_ml\entropy_ids\logs\predictions_train_adaptive.csv
+2026-02-24 22:12:54,713 - controller.hybrid_controller - INFO - Saved execution metadata to D:\malware_entropy_ml\entropy_ids\logs\metadata_train_adaptive.json
+2026-02-24 22:12:56,642 - controller.hybrid_controller - INFO - --- Starting Pipeline Execution | Action: CV | Mode: ADAPTIVE | Dynamic Threshold: False ---
+2026-02-24 22:12:56,648 - controller.hybrid_controller - INFO - Loaded 293 records from D:\malware_entropy_ml\entropy_ids\data\synthetic\expanded_dataset_v3.csv
+2026-02-24 22:12:56,653 - core.feature_engine - INFO - Extracted 14 features for 293 samples.
+2026-02-24 22:12:56,653 - controller.hybrid_controller - INFO - Starting 5-Fold Cross Validation...
+2026-02-24 22:12:56,656 - core.model_engine - INFO - Training model on 234 samples...
+2026-02-24 22:12:56,967 - core.model_engine - INFO - Model trained successfully.
+2026-02-24 22:12:56,985 - core.threshold_engine - INFO - Calculated Adaptive Threshold (Percentile 55): 0.0346
+2026-02-24 22:12:56,985 - core.classifier_engine - INFO - Classifying predictions using ADAPTIVE mode thresholding.
+2026-02-24 22:12:56,987 - core.classifier_engine - INFO - Benign confirmation layer active. Overridden 1 False Positives.
+2026-02-24 22:12:56,993 - core.evaluation_engine - INFO - Evaluated Metrics -> Precision: 0.6774, Recall: 0.9545, F1: 0.7925, FP: 10, FN: 1
+2026-02-24 22:12:56,994 - core.model_engine - INFO - Training model on 234 samples...
+2026-02-24 22:12:57,289 - core.model_engine - INFO - Model trained successfully.
+2026-02-24 22:12:57,306 - core.threshold_engine - INFO - Calculated Adaptive Threshold (Percentile 55): 0.0395
+2026-02-24 22:12:57,307 - core.classifier_engine - INFO - Classifying predictions using ADAPTIVE mode thresholding.
+2026-02-24 22:12:57,308 - core.classifier_engine - INFO - Benign confirmation layer active. Overridden 0 False Positives.
+2026-02-24 22:12:57,315 - core.evaluation_engine - INFO - Evaluated Metrics -> Precision: 0.6875, Recall: 1.0000, F1: 0.8148, FP: 10, FN: 0
+2026-02-24 22:12:57,315 - core.model_engine - INFO - Training model on 234 samples...
+2026-02-24 22:12:57,601 - core.model_engine - INFO - Model trained successfully.
+2026-02-24 22:12:57,618 - core.threshold_engine - INFO - Calculated Adaptive Threshold (Percentile 55): 0.0343
+2026-02-24 22:12:57,619 - core.classifier_engine - INFO - Classifying predictions using ADAPTIVE mode thresholding.
+2026-02-24 22:12:57,621 - core.classifier_engine - INFO - Benign confirmation layer active. Overridden 1 False Positives.
+2026-02-24 22:12:57,626 - core.evaluation_engine - INFO - Evaluated Metrics -> Precision: 0.6452, Recall: 0.9524, F1: 0.7692, FP: 11, FN: 1
+2026-02-24 22:12:57,627 - core.model_engine - INFO - Training model on 235 samples...
+2026-02-24 22:12:57,919 - core.model_engine - INFO - Model trained successfully.
+2026-02-24 22:12:57,937 - core.threshold_engine - INFO - Calculated Adaptive Threshold (Percentile 55): 0.0342
+2026-02-24 22:12:57,937 - core.classifier_engine - INFO - Classifying predictions using ADAPTIVE mode thresholding.
+2026-02-24 22:12:57,939 - core.classifier_engine - INFO - Benign confirmation layer active. Overridden 0 False Positives.
+2026-02-24 22:12:57,945 - core.evaluation_engine - INFO - Evaluated Metrics -> Precision: 0.5938, Recall: 0.9048, F1: 0.7170, FP: 13, FN: 2
+2026-02-24 22:12:57,946 - core.model_engine - INFO - Training model on 235 samples...
+2026-02-24 22:12:58,250 - core.model_engine - INFO - Model trained successfully.
+2026-02-24 22:12:58,275 - core.threshold_engine - INFO - Calculated Adaptive Threshold (Percentile 55): 0.0421
+2026-02-24 22:12:58,275 - core.classifier_engine - INFO - Classifying predictions using ADAPTIVE mode thresholding.
+2026-02-24 22:12:58,277 - core.classifier_engine - INFO - Benign confirmation layer active. Overridden 2 False Positives.
+2026-02-24 22:12:58,283 - core.evaluation_engine - INFO - Evaluated Metrics -> Precision: 0.6667, Recall: 0.9524, F1: 0.7843, FP: 10, FN: 1
+2026-02-24 22:12:58,283 - controller.hybrid_controller - INFO - CV completed. Average metrics generated.
+2026-02-24 22:13:00,037 - controller.hybrid_controller - INFO - --- Starting Pipeline Execution | Action: INFERENCE | Mode: ADAPTIVE | Dynamic Threshold: False ---
+2026-02-24 22:13:00,039 - controller.hybrid_controller - INFO - Loaded 100 records from D:\malware_entropy_ml\entropy_ids\data\raw\master_features.csv
+2026-02-24 22:13:00,043 - core.feature_engine - INFO - Extracted 14 features for 100 samples.
+2026-02-24 22:13:00,044 - core.model_engine - INFO - Loading persistent model from D:\malware_entropy_ml\entropy_ids\models\saved_models\iso_v2.pkl...
+2026-02-24 22:13:00,121 - core.model_engine - INFO - Model loaded successfully. Expected features: 14.
+2026-02-24 22:13:00,152 - controller.hybrid_controller - INFO - Loaded persisted threshold from training metadata.
+2026-02-24 22:13:00,153 - controller.hybrid_controller - INFO - Final threshold applied: 0.0327
+2026-02-24 22:13:00,153 - core.classifier_engine - INFO - Classifying predictions using ADAPTIVE mode thresholding.
+2026-02-24 22:13:00,157 - core.classifier_engine - INFO - Benign confirmation layer active. Overridden 4 False Positives.
+2026-02-24 22:13:00,163 - core.evaluation_engine - INFO - Evaluated Metrics -> Precision: 0.5476, Recall: 0.7667, F1: 0.6389, FP: 19, FN: 7
+2026-02-24 22:13:00,170 - controller.hybrid_controller - INFO - Saved mode INFERENCE predictions to D:\malware_entropy_ml\entropy_ids\logs\predictions_inference_adaptive.csv
+2026-02-24 22:13:00,170 - controller.hybrid_controller - INFO - Saved execution metadata to D:\malware_entropy_ml\entropy_ids\logs\metadata_inference_adaptive.json
+2026-02-24 22:43:48,679 - controller.hybrid_controller - INFO - --- Starting Pipeline Execution | Action: TRAIN | Mode: ADAPTIVE | Dynamic Threshold: False ---
+2026-02-24 22:43:48,691 - controller.hybrid_controller - INFO - Loaded 100 records from D:\malware_entropy_ml\entropy_ids\data\raw\master_features.csv
+2026-02-24 22:43:48,697 - core.feature_engine - INFO - Extracted 11 features for 100 samples.
+2026-02-24 22:43:48,705 - controller.hybrid_controller - INFO - Splitting data -> Train: 70, Test: 30
+2026-02-24 22:43:48,706 - core.model_engine - INFO - Training model on 70 samples...
+2026-02-24 22:43:49,003 - core.model_engine - INFO - Model trained successfully.
+2026-02-24 22:43:49,078 - core.model_engine - INFO - Model and scaler successfully saved to D:\malware_entropy_ml\entropy_ids\models\saved_models\iso_v2.pkl (Features: 11).
+2026-02-24 22:43:49,097 - core.threshold_engine - INFO - Calculated Adaptive Threshold (Percentile 55): -0.0010
+2026-02-24 22:43:49,097 - controller.hybrid_controller - INFO - Final threshold applied: -0.0010
+2026-02-24 22:43:49,098 - controller.hybrid_controller - INFO - Saved trained threshold metadata to D:\malware_entropy_ml\entropy_ids\models\saved_models\iso_v2_metadata.json
+2026-02-24 22:43:49,098 - core.classifier_engine - INFO - Classifying predictions using ADAPTIVE mode thresholding.
+2026-02-24 22:43:49,100 - core.classifier_engine - INFO - Benign confirmation layer active. Overridden 5 False Positives.
+2026-02-24 22:43:49,108 - core.evaluation_engine - INFO - Evaluated Metrics -> Precision: 0.7273, Recall: 0.8889, F1: 0.8000, FP: 3, FN: 1
+2026-02-24 22:43:49,114 - controller.hybrid_controller - INFO - Saved mode TRAIN predictions to D:\malware_entropy_ml\entropy_ids\logs\predictions_train_adaptive.csv
+2026-02-24 22:43:49,115 - controller.hybrid_controller - INFO - Saved execution metadata to D:\malware_entropy_ml\entropy_ids\logs\metadata_train_adaptive.json
+2026-02-24 22:43:50,982 - controller.hybrid_controller - INFO - --- Starting Pipeline Execution | Action: CV | Mode: ADAPTIVE | Dynamic Threshold: False ---
+2026-02-24 22:43:50,985 - controller.hybrid_controller - INFO - Loaded 100 records from D:\malware_entropy_ml\entropy_ids\data\raw\master_features.csv
+2026-02-24 22:43:50,989 - core.feature_engine - INFO - Extracted 11 features for 100 samples.
+2026-02-24 22:43:50,989 - controller.hybrid_controller - INFO - Starting 5-Fold Cross Validation...
+2026-02-24 22:43:50,991 - core.model_engine - INFO - Training model on 80 samples...
+2026-02-24 22:43:51,283 - core.model_engine - INFO - Model trained successfully.
+2026-02-24 22:43:51,299 - core.threshold_engine - INFO - Calculated Adaptive Threshold (Percentile 55): 0.0314
+2026-02-24 22:43:51,299 - core.classifier_engine - INFO - Classifying predictions using ADAPTIVE mode thresholding.
+2026-02-24 22:43:51,300 - core.classifier_engine - INFO - Benign confirmation layer active. Overridden 6 False Positives.
+2026-02-24 22:43:51,307 - core.evaluation_engine - INFO - Evaluated Metrics -> Precision: 0.8000, Recall: 0.6667, F1: 0.7273, FP: 1, FN: 2
+2026-02-24 22:43:51,308 - core.model_engine - INFO - Training model on 80 samples...
+2026-02-24 22:43:51,594 - core.model_engine - INFO - Model trained successfully.
+2026-02-24 22:43:51,610 - core.threshold_engine - INFO - Calculated Adaptive Threshold (Percentile 55): 0.0430
+2026-02-24 22:43:51,610 - core.classifier_engine - INFO - Classifying predictions using ADAPTIVE mode thresholding.
+2026-02-24 22:43:51,611 - core.classifier_engine - INFO - Benign confirmation layer active. Overridden 5 False Positives.
+2026-02-24 22:43:51,615 - core.evaluation_engine - INFO - Evaluated Metrics -> Precision: 0.8333, Recall: 0.8333, F1: 0.8333, FP: 1, FN: 1
+2026-02-24 22:43:51,617 - core.model_engine - INFO - Training model on 80 samples...
+2026-02-24 22:43:51,930 - core.model_engine - INFO - Model trained successfully.
+2026-02-24 22:43:51,948 - core.threshold_engine - INFO - Calculated Adaptive Threshold (Percentile 55): 0.0046
+2026-02-24 22:43:51,948 - core.classifier_engine - INFO - Classifying predictions using ADAPTIVE mode thresholding.
+2026-02-24 22:43:51,948 - core.classifier_engine - INFO - Benign confirmation layer active. Overridden 3 False Positives.
+2026-02-24 22:43:51,954 - core.evaluation_engine - INFO - Evaluated Metrics -> Precision: 0.7500, Recall: 1.0000, F1: 0.8571, FP: 2, FN: 0
+2026-02-24 22:43:51,955 - core.model_engine - INFO - Training model on 80 samples...
+2026-02-24 22:43:52,275 - core.model_engine - INFO - Model trained successfully.
+2026-02-24 22:43:52,292 - core.threshold_engine - INFO - Calculated Adaptive Threshold (Percentile 55): 0.0144
+2026-02-24 22:43:52,292 - core.classifier_engine - INFO - Classifying predictions using ADAPTIVE mode thresholding.
+2026-02-24 22:43:52,293 - core.classifier_engine - INFO - Benign confirmation layer active. Overridden 4 False Positives.
+2026-02-24 22:43:52,298 - core.evaluation_engine - INFO - Evaluated Metrics -> Precision: 0.5714, Recall: 0.6667, F1: 0.6154, FP: 3, FN: 2
+2026-02-24 22:43:52,298 - core.model_engine - INFO - Training model on 80 samples...
+2026-02-24 22:43:52,570 - core.model_engine - INFO - Model trained successfully.
+2026-02-24 22:43:52,588 - core.threshold_engine - INFO - Calculated Adaptive Threshold (Percentile 55): 0.0111
+2026-02-24 22:43:52,588 - core.classifier_engine - INFO - Classifying predictions using ADAPTIVE mode thresholding.
+2026-02-24 22:43:52,588 - core.classifier_engine - INFO - Benign confirmation layer active. Overridden 6 False Positives.
+2026-02-24 22:43:52,594 - core.evaluation_engine - INFO - Evaluated Metrics -> Precision: 1.0000, Recall: 0.8333, F1: 0.9091, FP: 0, FN: 1
+2026-02-24 22:43:52,594 - controller.hybrid_controller - INFO - CV completed. Average metrics generated.
+2026-02-24 22:43:54,339 - controller.hybrid_controller - INFO - --- Starting Pipeline Execution | Action: INFERENCE | Mode: ADAPTIVE | Dynamic Threshold: False ---
+2026-02-24 22:43:54,342 - controller.hybrid_controller - INFO - Loaded 100 records from D:\malware_entropy_ml\entropy_ids\data\raw\master_features.csv
+2026-02-24 22:43:54,344 - core.feature_engine - INFO - Extracted 11 features for 100 samples.
+2026-02-24 22:43:54,344 - core.model_engine - INFO - Loading persistent model from D:\malware_entropy_ml\entropy_ids\models\saved_models\iso_v2.pkl...
+2026-02-24 22:43:54,433 - core.model_engine - INFO - Model loaded successfully. Expected features: 11.
+2026-02-24 22:43:54,467 - controller.hybrid_controller - INFO - Loaded persisted threshold from training metadata.
+2026-02-24 22:43:54,467 - controller.hybrid_controller - INFO - Final threshold applied: -0.0010
+2026-02-24 22:43:54,467 - core.classifier_engine - INFO - Classifying predictions using ADAPTIVE mode thresholding.
+2026-02-24 22:43:54,470 - core.classifier_engine - INFO - Benign confirmation layer active. Overridden 15 False Positives.
+2026-02-24 22:43:54,476 - core.evaluation_engine - INFO - Evaluated Metrics -> Precision: 0.8400, Recall: 0.7000, F1: 0.7636, FP: 4, FN: 9
+2026-02-24 22:43:54,482 - controller.hybrid_controller - INFO - Saved mode INFERENCE predictions to D:\malware_entropy_ml\entropy_ids\logs\predictions_inference_adaptive.csv
+2026-02-24 22:43:54,483 - controller.hybrid_controller - INFO - Saved execution metadata to D:\malware_entropy_ml\entropy_ids\logs\metadata_inference_adaptive.json
+2026-02-24 23:10:38,601 - controller.hybrid_controller - INFO - --- Starting Pipeline Execution | Action: TRAIN | Mode: ADAPTIVE | Dynamic Threshold: False ---
+2026-02-24 23:10:38,611 - controller.hybrid_controller - INFO - Loaded 100 records from D:\malware_entropy_ml\entropy_ids\data\raw\master_features.csv
+2026-02-24 23:10:38,620 - core.feature_engine - INFO - Extracted 11 features for 100 samples.
+2026-02-24 23:10:38,629 - controller.hybrid_controller - INFO - Splitting data -> Train: 70, Test: 30
+2026-02-24 23:10:38,629 - core.model_engine - INFO - Training model on 70 samples...
+2026-02-24 23:10:38,950 - core.model_engine - INFO - Model trained successfully.
+2026-02-24 23:10:39,024 - core.model_engine - INFO - Model and scaler successfully saved to D:\malware_entropy_ml\entropy_ids\models\saved_models\iso_v2.pkl (Features: 11).
+2026-02-24 23:10:39,041 - core.threshold_engine - INFO - Calculated Adaptive Threshold (Percentile 55): -0.0010
+2026-02-24 23:10:39,041 - controller.hybrid_controller - INFO - Final threshold applied: -0.0010
+2026-02-24 23:10:39,043 - controller.hybrid_controller - INFO - Saved trained threshold metadata to D:\malware_entropy_ml\entropy_ids\models\saved_models\iso_v2_metadata.json
+2026-02-24 23:10:39,043 - core.classifier_engine - INFO - Classifying predictions using ADAPTIVE mode thresholding.
+2026-02-24 23:10:39,045 - core.classifier_engine - INFO - Benign confirmation layer active. Overridden 5 False Positives.
+2026-02-24 23:10:39,054 - core.evaluation_engine - INFO - Evaluated Metrics -> Precision: 0.7273, Recall: 0.8889, F1: 0.8000, FP: 3, FN: 1
+2026-02-24 23:10:39,060 - controller.hybrid_controller - INFO - Saved mode TRAIN predictions to D:\malware_entropy_ml\entropy_ids\logs\predictions_train_adaptive.csv
+2026-02-24 23:10:39,061 - controller.hybrid_controller - INFO - Saved execution metadata to D:\malware_entropy_ml\entropy_ids\logs\metadata_train_adaptive.json
+2026-02-24 23:10:40,739 - controller.hybrid_controller - INFO - --- Starting Pipeline Execution | Action: CV | Mode: ADAPTIVE | Dynamic Threshold: False ---
+2026-02-24 23:10:40,743 - controller.hybrid_controller - INFO - Loaded 100 records from D:\malware_entropy_ml\entropy_ids\data\raw\master_features.csv
+2026-02-24 23:10:40,746 - core.feature_engine - INFO - Extracted 11 features for 100 samples.
+2026-02-24 23:10:40,747 - controller.hybrid_controller - INFO - Starting 5-Fold Cross Validation...
+2026-02-24 23:10:40,750 - core.model_engine - INFO - Training model on 80 samples...
+2026-02-24 23:10:41,029 - core.model_engine - INFO - Model trained successfully.
+2026-02-24 23:10:41,045 - core.threshold_engine - INFO - Calculated Adaptive Threshold (Percentile 55): 0.0314
+2026-02-24 23:10:41,045 - core.classifier_engine - INFO - Classifying predictions using ADAPTIVE mode thresholding.
+2026-02-24 23:10:41,047 - core.classifier_engine - INFO - Benign confirmation layer active. Overridden 6 False Positives.
+2026-02-24 23:10:41,053 - core.evaluation_engine - INFO - Evaluated Metrics -> Precision: 0.8000, Recall: 0.6667, F1: 0.7273, FP: 1, FN: 2
+2026-02-24 23:10:41,054 - core.model_engine - INFO - Training model on 80 samples...
+2026-02-24 23:10:41,329 - core.model_engine - INFO - Model trained successfully.
+2026-02-24 23:10:41,345 - core.threshold_engine - INFO - Calculated Adaptive Threshold (Percentile 55): 0.0430
+2026-02-24 23:10:41,345 - core.classifier_engine - INFO - Classifying predictions using ADAPTIVE mode thresholding.
+2026-02-24 23:10:41,346 - core.classifier_engine - INFO - Benign confirmation layer active. Overridden 5 False Positives.
+2026-02-24 23:10:41,352 - core.evaluation_engine - INFO - Evaluated Metrics -> Precision: 0.8333, Recall: 0.8333, F1: 0.8333, FP: 1, FN: 1
+2026-02-24 23:10:41,353 - core.model_engine - INFO - Training model on 80 samples...
+2026-02-24 23:10:41,626 - core.model_engine - INFO - Model trained successfully.
+2026-02-24 23:10:41,642 - core.threshold_engine - INFO - Calculated Adaptive Threshold (Percentile 55): 0.0046
+2026-02-24 23:10:41,642 - core.classifier_engine - INFO - Classifying predictions using ADAPTIVE mode thresholding.
+2026-02-24 23:10:41,642 - core.classifier_engine - INFO - Benign confirmation layer active. Overridden 3 False Positives.
+2026-02-24 23:10:41,648 - core.evaluation_engine - INFO - Evaluated Metrics -> Precision: 0.7500, Recall: 1.0000, F1: 0.8571, FP: 2, FN: 0
+2026-02-24 23:10:41,650 - core.model_engine - INFO - Training model on 80 samples...
+2026-02-24 23:10:41,923 - core.model_engine - INFO - Model trained successfully.
+2026-02-24 23:10:41,942 - core.threshold_engine - INFO - Calculated Adaptive Threshold (Percentile 55): 0.0144
+2026-02-24 23:10:41,942 - core.classifier_engine - INFO - Classifying predictions using ADAPTIVE mode thresholding.
+2026-02-24 23:10:41,942 - core.classifier_engine - INFO - Benign confirmation layer active. Overridden 4 False Positives.
+2026-02-24 23:10:41,949 - core.evaluation_engine - INFO - Evaluated Metrics -> Precision: 0.5714, Recall: 0.6667, F1: 0.6154, FP: 3, FN: 2
+2026-02-24 23:10:41,950 - core.model_engine - INFO - Training model on 80 samples...
+2026-02-24 23:10:42,223 - core.model_engine - INFO - Model trained successfully.
+2026-02-24 23:10:42,238 - core.threshold_engine - INFO - Calculated Adaptive Threshold (Percentile 55): 0.0111
+2026-02-24 23:10:42,238 - core.classifier_engine - INFO - Classifying predictions using ADAPTIVE mode thresholding.
+2026-02-24 23:10:42,240 - core.classifier_engine - INFO - Benign confirmation layer active. Overridden 6 False Positives.
+2026-02-24 23:10:42,245 - core.evaluation_engine - INFO - Evaluated Metrics -> Precision: 1.0000, Recall: 0.8333, F1: 0.9091, FP: 0, FN: 1
+2026-02-24 23:10:42,246 - controller.hybrid_controller - INFO - CV completed. Average metrics generated.
+2026-02-24 23:10:44,012 - controller.hybrid_controller - INFO - --- Starting Pipeline Execution | Action: INFERENCE | Mode: ADAPTIVE | Dynamic Threshold: False ---
+2026-02-24 23:10:44,014 - controller.hybrid_controller - INFO - Loaded 100 records from D:\malware_entropy_ml\entropy_ids\data\raw\master_features.csv
+2026-02-24 23:10:44,018 - core.feature_engine - INFO - Extracted 11 features for 100 samples.
+2026-02-24 23:10:44,019 - core.model_engine - INFO - Loading persistent model from D:\malware_entropy_ml\entropy_ids\models\saved_models\iso_v2.pkl...
+2026-02-24 23:10:44,106 - core.model_engine - INFO - Model loaded successfully. Expected features: 11.
+2026-02-24 23:10:44,143 - controller.hybrid_controller - INFO - Loaded persisted threshold from training metadata.
+2026-02-24 23:10:44,143 - controller.hybrid_controller - INFO - Final threshold applied: -0.0010
+2026-02-24 23:10:44,143 - core.classifier_engine - INFO - Classifying predictions using ADAPTIVE mode thresholding.
+2026-02-24 23:10:44,145 - core.classifier_engine - INFO - Benign confirmation layer active. Overridden 15 False Positives.
+2026-02-24 23:10:44,151 - core.evaluation_engine - INFO - Evaluated Metrics -> Precision: 0.8400, Recall: 0.7000, F1: 0.7636, FP: 4, FN: 9
+2026-02-24 23:10:44,158 - controller.hybrid_controller - INFO - Saved mode INFERENCE predictions to D:\malware_entropy_ml\entropy_ids\logs\predictions_inference_adaptive.csv
+2026-02-24 23:10:44,158 - controller.hybrid_controller - INFO - Saved execution metadata to D:\malware_entropy_ml\entropy_ids\logs\metadata_inference_adaptive.json
+2026-02-24 23:38:22,220 - controller.hybrid_controller - INFO - --- Starting Pipeline Execution | Action: TRAIN | Mode: ADAPTIVE ---
+2026-02-24 23:38:22,230 - controller.hybrid_controller - INFO - Loaded 100 records from D:\malware_entropy_ml\entropy_ids\data\raw\master_features.csv
+2026-02-24 23:38:22,238 - core.feature_engine - INFO - Extracted 11 features for 100 samples.
+2026-02-24 23:38:22,244 - controller.hybrid_controller - INFO - Splitting data -> Train: 70, Test: 30
+2026-02-24 23:38:22,245 - core.model_engine - INFO - Training model on 70 samples...
+2026-02-24 23:38:22,536 - core.model_engine - INFO - Model trained successfully.
+2026-02-24 23:38:22,653 - core.model_engine - INFO - Model and scaler successfully saved to D:\malware_entropy_ml\entropy_ids\models\saved_models\production\iso_v1_production.pkl (Features: 11).
+2026-02-24 23:38:22,676 - core.threshold_engine - INFO - Calculated Adaptive Threshold (Percentile 55): -0.0010
+2026-02-24 23:38:22,677 - controller.hybrid_controller - INFO - Final threshold applied: -0.0010
+2026-02-24 23:38:22,678 - controller.hybrid_controller - INFO - Saved trained threshold metadata to D:\malware_entropy_ml\entropy_ids\models\saved_models\production\iso_v1_production_metadata.json
+2026-02-24 23:38:22,678 - core.classifier_engine - INFO - Classifying predictions using ADAPTIVE mode thresholding.
+2026-02-24 23:38:22,684 - core.classifier_engine - INFO - Benign confirmation layer active. Overridden 5 False Positives.
+2026-02-24 23:38:22,696 - core.evaluation_engine - INFO - Evaluated Metrics -> Precision: 0.7273, Recall: 0.8889, F1: 0.8000, FP: 3, FN: 1
+2026-02-24 23:38:22,703 - controller.hybrid_controller - INFO - Saved mode TRAIN predictions to D:\malware_entropy_ml\entropy_ids\logs\predictions_train_adaptive.csv
+2026-02-24 23:38:22,705 - controller.hybrid_controller - INFO - Saved execution metadata to D:\malware_entropy_ml\entropy_ids\logs\metadata_train_adaptive.json
+2026-02-24 23:38:24,650 - controller.hybrid_controller - INFO - --- Starting Pipeline Execution | Action: CV | Mode: ADAPTIVE ---
+2026-02-24 23:38:24,652 - controller.hybrid_controller - INFO - Loaded 100 records from D:\malware_entropy_ml\entropy_ids\data\raw\master_features.csv
+2026-02-24 23:38:24,656 - core.feature_engine - INFO - Extracted 11 features for 100 samples.
+2026-02-24 23:38:24,656 - controller.hybrid_controller - INFO - Starting 5-Fold Cross Validation...
+2026-02-24 23:38:24,658 - core.model_engine - INFO - Training model on 80 samples...
+2026-02-24 23:38:24,958 - core.model_engine - INFO - Model trained successfully.
+2026-02-24 23:38:24,974 - core.threshold_engine - INFO - Calculated Adaptive Threshold (Percentile 55): 0.0314
+2026-02-24 23:38:24,974 - core.classifier_engine - INFO - Classifying predictions using ADAPTIVE mode thresholding.
+2026-02-24 23:38:24,976 - core.classifier_engine - INFO - Benign confirmation layer active. Overridden 6 False Positives.
+2026-02-24 23:38:24,982 - core.evaluation_engine - INFO - Evaluated Metrics -> Precision: 0.8000, Recall: 0.6667, F1: 0.7273, FP: 1, FN: 2
+2026-02-24 23:38:24,982 - core.model_engine - INFO - Training model on 80 samples...
+2026-02-24 23:38:25,256 - core.model_engine - INFO - Model trained successfully.
+2026-02-24 23:38:25,273 - core.threshold_engine - INFO - Calculated Adaptive Threshold (Percentile 55): 0.0430
+2026-02-24 23:38:25,274 - core.classifier_engine - INFO - Classifying predictions using ADAPTIVE mode thresholding.
+2026-02-24 23:38:25,276 - core.classifier_engine - INFO - Benign confirmation layer active. Overridden 5 False Positives.
+2026-02-24 23:38:25,281 - core.evaluation_engine - INFO - Evaluated Metrics -> Precision: 0.8333, Recall: 0.8333, F1: 0.8333, FP: 1, FN: 1
+2026-02-24 23:38:25,282 - core.model_engine - INFO - Training model on 80 samples...
+2026-02-24 23:38:25,561 - core.model_engine - INFO - Model trained successfully.
+2026-02-24 23:38:25,576 - core.threshold_engine - INFO - Calculated Adaptive Threshold (Percentile 55): 0.0046
+2026-02-24 23:38:25,576 - core.classifier_engine - INFO - Classifying predictions using ADAPTIVE mode thresholding.
+2026-02-24 23:38:25,578 - core.classifier_engine - INFO - Benign confirmation layer active. Overridden 3 False Positives.
+2026-02-24 23:38:25,583 - core.evaluation_engine - INFO - Evaluated Metrics -> Precision: 0.7500, Recall: 1.0000, F1: 0.8571, FP: 2, FN: 0
+2026-02-24 23:38:25,584 - core.model_engine - INFO - Training model on 80 samples...
+2026-02-24 23:38:25,868 - core.model_engine - INFO - Model trained successfully.
+2026-02-24 23:38:25,884 - core.threshold_engine - INFO - Calculated Adaptive Threshold (Percentile 55): 0.0144
+2026-02-24 23:38:25,885 - core.classifier_engine - INFO - Classifying predictions using ADAPTIVE mode thresholding.
+2026-02-24 23:38:25,885 - core.classifier_engine - INFO - Benign confirmation layer active. Overridden 4 False Positives.
+2026-02-24 23:38:25,891 - core.evaluation_engine - INFO - Evaluated Metrics -> Precision: 0.5714, Recall: 0.6667, F1: 0.6154, FP: 3, FN: 2
+2026-02-24 23:38:25,891 - core.model_engine - INFO - Training model on 80 samples...
+2026-02-24 23:38:26,172 - core.model_engine - INFO - Model trained successfully.
+2026-02-24 23:38:26,189 - core.threshold_engine - INFO - Calculated Adaptive Threshold (Percentile 55): 0.0111
+2026-02-24 23:38:26,191 - core.classifier_engine - INFO - Classifying predictions using ADAPTIVE mode thresholding.
+2026-02-24 23:38:26,191 - core.classifier_engine - INFO - Benign confirmation layer active. Overridden 6 False Positives.
+2026-02-24 23:38:26,197 - core.evaluation_engine - INFO - Evaluated Metrics -> Precision: 1.0000, Recall: 0.8333, F1: 0.9091, FP: 0, FN: 1
+2026-02-24 23:38:26,198 - controller.hybrid_controller - INFO - CV completed. Average metrics generated.
+2026-02-24 23:38:27,898 - controller.hybrid_controller - INFO - --- Starting Pipeline Execution | Action: INFERENCE | Mode: ADAPTIVE ---
+2026-02-24 23:38:27,902 - controller.hybrid_controller - INFO - Loaded 100 records from D:\malware_entropy_ml\entropy_ids\data\raw\master_features.csv
+2026-02-24 23:38:27,904 - core.feature_engine - INFO - Extracted 11 features for 100 samples.
+2026-02-24 23:38:27,904 - core.model_engine - INFO - Loading persistent model from D:\malware_entropy_ml\entropy_ids\models\saved_models\production\iso_v1_production.pkl...
+2026-02-24 23:38:27,969 - core.model_engine - INFO - Model loaded successfully. Expected features: 11.
+2026-02-24 23:38:27,987 - controller.hybrid_controller - INFO - Loaded persisted threshold from training metadata.
+2026-02-24 23:38:27,987 - controller.hybrid_controller - INFO - Final threshold applied: -0.0010
+2026-02-24 23:38:27,988 - core.classifier_engine - INFO - Classifying predictions using ADAPTIVE mode thresholding.
+2026-02-24 23:38:27,989 - core.classifier_engine - INFO - Benign confirmation layer active. Overridden 15 False Positives.
+2026-02-24 23:38:27,997 - core.evaluation_engine - INFO - Evaluated Metrics -> Precision: 0.8400, Recall: 0.7000, F1: 0.7636, FP: 4, FN: 9
+2026-02-24 23:38:28,005 - controller.hybrid_controller - INFO - Saved mode INFERENCE predictions to D:\malware_entropy_ml\entropy_ids\logs\predictions_inference_adaptive.csv
+2026-02-24 23:38:28,006 - controller.hybrid_controller - INFO - Saved execution metadata to D:\malware_entropy_ml\entropy_ids\logs\metadata_inference_adaptive.json

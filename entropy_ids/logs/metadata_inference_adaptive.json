@@ -1,0 +1,19 @@
+{
+    "train_size": 0,
+    "test_size": 100,
+    "split_ratio": 0.3,
+    "random_state": 42,
+    "threshold": -0.0009971977385673956,
+    "mode": "adaptive",
+    "action": "inference",
+    "metrics": {
+        "precision": 0.84,
+        "recall": 0.7,
+        "f1": 0.7636363636363637,
+        "fp": 4,
+        "fn": 9,
+        "roc_auc": 0.8466666666666667
+    },
+    "timestamp": "2026-02-24T23:38:28.005740",
+    "version": "1.1.0"
+}

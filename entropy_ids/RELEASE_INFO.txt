@@ -1,0 +1,32 @@
+================================================================
+  MALWARE ENTROPY IDS - RELEASE INFORMATION
+================================================================
+
+Version         : v1.0
+Status          : Production Stable
+Release Date    : 2026-02-24
+
+----[ MODEL SPECIFICATIONS ]------------------------------------
+Algorithm       : Isolation Forest
+Estimators      : 300
+Contamination   : 0.18
+Feature Count   : 11
+Locked Threshold: -0.0010  (Based on Percentile 56 from Train)
+
+----[ SYSTEM ARCHITECTURE ]-------------------------------------
+- Feature Selection: 11 Dense Features (Global Entropy, ASCII Ratios, Engineered Combo)
+- Strict Inference: Zero dynamic threshold calculation on inference.
+- Confirmation Layer: Strict Benign overrides active.
+
+----[ EVALUATION METRICS ]--------------------------------------
+Alarm Rate      : 25.0%
+Real F1 Score   : 0.7636
+Precision       : 0.8400
+Recall          : 0.7000
+False Positives : 4
+
+----[ USAGE ]---------------------------------------------------
+Run Inference   : python tools/run_pipeline.py --action inference
+Run Audit       : python tools/audit_model.py
+Live Dashboard  : python tools/dashboard_monitor.py
+================================================================
