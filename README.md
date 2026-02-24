@@ -90,3 +90,61 @@ An anomaly is confirmed **only if**:
 - `non_printable_ratio > 0.015`
 
 *This layer significantly reduces false positives.*
+
+---
+
+## 💻 Panduan Menjalankan Sistem | Usage Commands
+
+**🇮🇩 (ID)**
+Arahkan direktori terminal ke dalam folder `entropy_ids` terlebih dahulu, lalu gunakan perintah berikut:
+
+1. **Melatih & Menguji Model (Training & CV) 🧪**
+   *Mengeksekusi pipeline pelatihan penuh dengan parameter model 1.0:*
+   ```bash
+   python app/main.py --action train --mode adaptive
+   ```
+
+2. **Deteksi/Inference Real-Time (Production) 🚀**
+   *Menganalisis file tak dikenal murni menggunakan threshold dari model produksi:*
+   ```bash
+   python app/main.py --action inference
+   ```
+
+3. **Audit Kualitas Produksi & Threshold 🔍**
+   *Membaca statistik model dan mengecek kebocoran threshold dinamis:*
+   ```bash
+   python tools/audit_model.py
+   ```
+
+4. **Monitoring Dashboard Langsung 📊**
+   *Membuka live-dashboard untuk memantau trafik anomali secara visual:*
+   ```bash
+   python tools/dashboard_monitor.py
+   ```
+
+**🇬🇧 (EN)**
+Navigate your terminal into the `entropy_ids` folder first, then execute the following commands:
+
+1. **Train & Evaluate Model (Training & CV) 🧪**
+   *Executes the full training pipeline using the 1.0 model parameters:*
+   ```bash
+   python app/main.py --action train --mode adaptive
+   ```
+
+2. **Real-Time Inference (Production) 🚀**
+   *Analyzes fresh unknown files using purely the frozen production threshold:*
+   ```bash
+   python app/main.py --action inference
+   ```
+
+3. **Production Quality & Threshold Audit 🔍**
+   *Reads model statistics and audits for dynamic threshold leakage:*
+   ```bash
+   python tools/audit_model.py
+   ```
+
+4. **Live Monitoring Dashboard 📊**
+   *Deploys the live-terminal dashboard to visually monitor anomaly traffic:*
+   ```bash
+   python tools/dashboard_monitor.py
+   ```
