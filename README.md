@@ -1,100 +1,92 @@
 # 🛡️ H.E.A.D.S — Hybrid Entropy Anomaly Detection System (v1.0)
 
-> **Tugas Evaluasi / Remidi**
-> - **Nama:** Adi Suryadi
+> **Tugas Evaluasi / Remidi | Evaluation / Remedial Assignment**
+> 
+> - **Name:** Adi Suryadi
 > - **Semester:** 4
-> - **Tahun:** 2026
->
-> 🔗 **[Repository GitHub](https://github.com/lhahah131/H.E.A.D.S-Hybrid-Entropy-Anomaly-Detection-System-v1.0-.git)**
->
-> 📖 **[Klik di sini untuk membaca Laporan Remidi Selengkapnya](entropy_ids/docs/Laporan_Remidi_HEADS.md)**
+> - **Year:** 2026
+
+> 🇮🇩 📖 **[Klik di sini untuk membaca Laporan Remidi (Versi Indonesia)](entropy_ids/docs/Laporan_Remidi_HEADS.md)**  
+> 🇬🇧 📖 **[Click here to read the Remedial Report (English Version)](entropy_ids/docs/Remedial_Report_HEADS_EN.md)**
 
 ---
 
-## 📌 Ringkasan Eksekutif
-Sistem **H.E.A.D.S (v1.0)** telah resmi dibekukan dan siap dioperasikan di lingkungan *Production*. Sistem ini mengombinasikan algoritma **Isolation Forest** dengan **Benign Confirmation Layer** khusus untuk mengenali anomali *(malware payloads, terenkripsi)* berdasarkan analisis fitur berbasis entropi dengan false positive yang mendekati nol.
+## 📌 Ringkasan Eksekutif | Executive Summary
 
-Model telah diaudit dan menunjukkan Generalisasi yang andal di atas distribusi data riil tanpa mengalami over-sensitivitas *(Alarm Rate < 30%)*.
+**🇮🇩 (ID)**
+Sistem H.E.A.D.S (v1.0) telah resmi dibekukan dan siap dioperasikan di lingkungan *Production*. Sistem ini mengombinasikan algoritma Isolation Forest dengan Benign Confirmation Layer khusus untuk mengenali anomali (*malware payloads*, terenkripsi) berdasarkan analisis fitur berbasis entropi dengan *false positive* yang mendekati nol.
+
+Model telah diaudit dan menunjukkan Generalisasi yang andal di atas distribusi data riil tanpa mengalami over-sensitivitas (Alarm Rate < 30%).
+
+**🇬🇧 (EN)**
+The H.E.A.D.S (v1.0) system has been officially frozen and is ready for production deployment. It combines the Isolation Forest algorithm with a Benign Confirmation Layer to detect anomalies (*malware payloads*, encrypted files) using entropy-based feature analysis with near-zero false positives.
+
+The model has been audited and demonstrates reliable generalization on real data distribution without over-sensitivity (Alarm Rate < 30%).
 
 ---
 
-## 🏗️ Arsitektur Model Utama
+## 🏗️ Arsitektur Model Utama | Core Model Architecture
+
+**🇮🇩 (ID)**
 - **Algoritma Dasar:** `sklearn.ensemble.IsolationForest`
 - **Jumlah Pohon (N_Estimators):** 300
-- **Contamination Ratio:** 0.18 (Tingkat agresivitas telah dikalibrasi realistis dari 0.35)
+- **Contamination Ratio:** 0.18
 - **Persentil Threshold:** 56 (Locked/Persisted)
 
-Sistem menggunakan **Locked Threshold Mechanism** pada tahapan komputasinya. Artinya, kalkulasi batas pemutus anomali (Threshold) hanya berlaku dan dihitung pada fase **Train**. Pada fase **Inference / Production**, model murni menarik angka hasil panen pelatihan *(Zero Dynamic Recalculation)* demi menjaga stabilitas pelacakan drift.
+Sistem menggunakan mekanisme *Locked Threshold*, di mana threshold hanya dihitung saat fase pelatihan dan tidak dihitung ulang saat produksi.
+
+**🇬🇧 (EN)**
+- **Base Algorithm:** `sklearn.ensemble.IsolationForest`
+- **Number of Trees (N_Estimators):** 300
+- **Contamination Ratio:** 0.18
+- **Percentile Threshold:** 56 (Locked/Persisted)
+
+The system applies a *Locked Threshold* mechanism, meaning the anomaly boundary is calculated only during training and reused during production without recalculation.
 
 ---
 
-## 🔄 Alur Kerja Sistem (Workflow)
-Secara garis besar, pendeteksian berjalan otomatis melalui tahap berikut:
-1. **Input Data:** Menerima *file* statis yang disandikan ke dalam representasi log.
-2. **Feature Extraction:** Menghitung susunan 11 metrik fitur (Keacakan Entropi & Rasio Byte).
-3. **Isolation Forest Scoring:** Mengukur angka "Keanehan" *file* dari struktur kepadatan algoritma pohon.
-4. **Threshold Evaluation:** Mengadu skor keanehan dengan batas mutlak (*Persisted Threshold*).
-5. **Benign Confirmation Layer:** Memeriksa kembali klaim "Anomali" untuk mengeksekusi pencegahan *False Positive*.
-6. **Verdict / Output:** Melemparkan status akhir keputusan: `BENIGN` (Aman) atau `ANOMALY` (Ancaman).
+## 🔄 Alur Kerja Sistem | Workflow
 
----
+**🇮🇩 (ID)**
+1. Input Data
+2. Feature Extraction (11 metrik)
+3. Isolation Forest Scoring
+4. Threshold Evaluation
+5. Benign Confirmation Layer
+6. Verdict Output: `BENIGN` atau `ANOMALY`
 
-## 🧬 Feature Engineering (Top 11 Features)
-Sistem V1.0 menggunakan *Feature Density Optimization*. Atribut lemah dan tidak informatif telah dicukur bersih untuk menghindari kebingungan model (Curse of Dimensionality). Fitur kunci yang tersisa:
-1. `global_entropy`
-2. `block_mean_entropy`
-3. `block_std_entropy`
-4. `non_printable_ratio`
-5. `ascii_ratio`
-6. `byte_mean`
-7. `byte_std`
-8. `byte_skewness`
-9. **`entropy_x_nonprint`** *(Kombinasi Baru - Kuat untuk sandi terselubung)*
-10. **`entropy_div_ascii`** *(Kombinasi Baru)*
-11. **`bytestd_div_bytemean`** *(Kombinasi Baru)*
+**🇬🇧 (EN)**
+1. Data Ingestion
+2. Feature Extraction (11 metrics)
+3. Isolation Forest Scoring
+4. Threshold Evaluation
+5. Benign Confirmation Layer
+6. Final Verdict: `BENIGN` or `ANOMALY`
 
 ---
 
 ## 🛡️ Benign Confirmation Layer (Strict Mode)
-Fitur unggulan V1.0 adalah validasi ganda dari hasil klaim anomali. Setiap deteksi (label=1) dari hutan algoritma wajib menjalani validasi logika keras:
-- File dianulir dan dikembalikan ke status **Aman (0)** JIKA:
-  1. `ascii_ratio` > 0.85 DAN
-  2. `non_printable_ratio` < 0.05 DAN
-  3. `global_entropy` < 4.8
-- Anomaly dikunci positif HANYA JIKA:
-  `global_entropy` > 4.75 DAN `non_printable_ratio` > 0.015
 
-Layer ini menyumbang penurunan luar biasa terhadap angka *False Positive* (Aman dituduh Malware). 
+**🇮🇩 (ID)**
+File dinyatakan **Aman** jika:
+- `ascii_ratio > 0.85`
+- `non_printable_ratio < 0.05`
+- `global_entropy < 4.8`
 
----
+Anomaly dikunci **positif** jika:
+- `global_entropy > 4.75`
+- `non_printable_ratio > 0.015`
 
-## 📊 Metrik Evaluasi Produksi Akhir
-Diuji di atas 100 Real-Simulation Data Master Database:
-- **Real F1 Score      :** 0.7636
-- **Precision          :** 0.8400
-- **Recall             :** 0.7000
-- **ROC AUC            :** 0.8467
-- **False Positives    :** Hanya 4 Alarm Palsu (Turun drastis dari 31 Kasus di Beta V4)
-- **False Negatives    :** 9  
-- **Flagged Alarm Rate :** 25.0%
+*Layer ini menurunkan False Positive secara signifikan.*
 
----
+**🇬🇧 (EN)**
+A file is considered **Safe** if:
+- `ascii_ratio > 0.85`
+- `non_printable_ratio < 0.05`
+- `global_entropy < 4.8`
 
-## 💻 Panduan Menjalankan Sistem
+An anomaly is confirmed **only if**:
+- `global_entropy > 4.75`
+- `non_printable_ratio > 0.015`
 
-1. **Untuk Melatih & Menguji Model (Pipeline Penuh):**
-   ```bash
-   python entropy_ids/tools/run_pipeline.py
-   ```
-
-2. **Untuk Menjalankan Audit Kualitas (Health Check):**
-   ```bash
-   python entropy_ids/tools/audit_model.py
-   ```
-
-3. **Untuk Membuka Monitoring Dashboard (Live Terminal):**
-   ```bash
-   python entropy_ids/tools/dashboard_monitor.py
-   ```
-
-*(Log Eksekusi & Bukti Audit tersimpan otomatis dalam histori log di direktori `entropy_ids/logs/`)*
+*This layer significantly reduces false positives.*
