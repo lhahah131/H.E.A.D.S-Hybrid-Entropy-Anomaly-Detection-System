@@ -1,150 +1,87 @@
-# 🛡️ H.E.A.D.S — Hybrid Entropy Anomaly Detection System (v1.0)
+# 🛡️ H.E.A.D.S — Hybrid Entropy Anomaly Detection System (v1.5)
 
-> **Tugas Evaluasi / Remidi | Evaluation / Remedial Assignment**
-> 
-> - **Name:** Adi Suryadi
-> - **Semester:** 4
-> - **Year:** 2026
+<div align="center">
 
-> 🇮🇩 📖 **[Klik di sini untuk membaca Laporan Remidi (Versi Indonesia)](entropy_ids/docs/Laporan_Remidi_HEADS.md)**  
-> 🇬🇧 📖 **[Click here to read the Remedial Report (English Version)](entropy_ids/docs/Remedial_Report_HEADS_EN.md)**
+![Version](https://img.shields.io/badge/Versi-1.5-blue)
+![Status](https://img.shields.io/badge/Status-Production%20Ready-brightgreen)
+![Algorithm](https://img.shields.io/badge/AI-Isolation%20Forest%20%2B%20HWCL-purple)
+![Python](https://img.shields.io/badge/Python-3.11-yellow)
 
----
+> **Tugas Evaluasi / Remidi Akhir**
+> - **Nama:** Adi Suryadi
+> - **Semester:** 4 — Tahun: 2026
 
-## 📌 Ringkasan Eksekutif | Executive Summary
+🇮🇩 📖 **[Klik di sini → Baca Laporan Resmi Remidi H.E.A.D.S v1.5](entropy_ids/docs/Laporan_Remidi_HEADS_v1.5.md)**
 
-**🇮🇩 (ID)**
-Sistem H.E.A.D.S (v1.0) telah resmi dibekukan dan siap dioperasikan di lingkungan *Production*. Sistem ini mengombinasikan algoritma Isolation Forest dengan Benign Confirmation Layer khusus untuk mengenali anomali (*malware payloads*, terenkripsi) berdasarkan analisis fitur berbasis entropi dengan *false positive* yang mendekati nol.
-
-Model telah diaudit dan menunjukkan Generalisasi yang andal di atas distribusi data riil tanpa mengalami over-sensitivitas (Alarm Rate < 30%).
-
-**🇬🇧 (EN)**
-The H.E.A.D.S (v1.0) system has been officially frozen and is ready for production deployment. It combines the Isolation Forest algorithm with a Benign Confirmation Layer to detect anomalies (*malware payloads*, encrypted files) using entropy-based feature analysis with near-zero false positives.
-
-The model has been audited and demonstrates reliable generalization on real data distribution without over-sensitivity (Alarm Rate < 30%).
+</div>
 
 ---
 
-## 🏗️ Arsitektur Model Utama | Core Model Architecture
+## 📌 Ringkasan Eksekutif
+Sistem **H.E.A.D.S. v1.5** adalah sebuah *Next-Generation Antivirus (NGAV)* berbasis *Machine Learning* yang mampu mendeteksi *malware* secara **Real-Time** tanpa database tanda tangan virus (*Signature-Free*). 
 
-**🇮🇩 (ID)**
-- **Algoritma Dasar:** `sklearn.ensemble.IsolationForest`
-- **Jumlah Pohon (N_Estimators):** 300
-- **Contamination Ratio:** 0.18
-- **Persentil Threshold:** 56 (Locked/Persisted)
-
-Sistem menggunakan mekanisme *Locked Threshold*, di mana threshold hanya dihitung saat fase pelatihan dan tidak dihitung ulang saat produksi.
-
-**🇬🇧 (EN)**
-- **Base Algorithm:** `sklearn.ensemble.IsolationForest`
-- **Number of Trees (N_Estimators):** 300
-- **Contamination Ratio:** 0.18
-- **Percentile Threshold:** 56 (Locked/Persisted)
-
-The system applies a *Locked Threshold* mechanism, meaning the anomaly boundary is calculated only during training and reused during production without recalculation.
+Berevolusi dari v1.0 yang hanya mengandalkan 11 Fitur Entropi, versi terbaru ini kini memiliki **16 Fitur Cerdas** termasuk analisis forensik *Portable Executable (PE Header)*, deteksi API berbahaya, dan analisis teks mencurigakan yang membuatnya tahan terhadap teknik persembunyian *Malware* termutakhir seperti *Packing*, *Encryption*, dan *PowerShell Dropper*.
 
 ---
 
-## 🔄 Alur Kerja Sistem | Workflow
+## 🏆 Perbandingan Kinerja: v1.0 vs v1.5
 
-**🇮🇩 (ID)**
-1. Input Data
-2. Feature Extraction (11 metrik)
-3. Isolation Forest Scoring
-4. Threshold Evaluation
-5. Benign Confirmation Layer
-6. Verdict Output: `BENIGN` atau `ANOMALY`
-
-**🇬🇧 (EN)**
-1. Data Ingestion
-2. Feature Extraction (11 metrics)
-3. Isolation Forest Scoring
-4. Threshold Evaluation
-5. Benign Confirmation Layer
-6. Final Verdict: `BENIGN` or `ANOMALY`
+| Metrik | v1.0 (Lama) | v1.5 (Sekarang) |
+| :--- | :---: | :---: |
+| **F1-Score** | 0.76 | **0.8889 ✅** |
+| **ROC AUC** | 0.85 | **0.9471 ✅** |
+| **Jumlah Fitur AI** | 11 | **16 ✅** |
+| **PE Forensics (pefile)** | ❌ | **✅** |
+| **Dashboard GUI Real-Time** | ❌ | **✅** |
+| **1-Klik Launcher (.bat)** | ❌ | **✅** |
 
 ---
 
-## 🛡️ Benign Confirmation Layer (Strict Mode)
-
-**🇮🇩 (ID)**
-File dinyatakan **Aman** jika:
-- `ascii_ratio > 0.85`
-- `non_printable_ratio < 0.05`
-- `global_entropy < 4.8`
-
-Anomaly dikunci **positif** jika:
-- `global_entropy > 4.75`
-- `non_printable_ratio > 0.015`
-
-*Layer ini menurunkan False Positive secara signifikan.*
-
-**🇬🇧 (EN)**
-A file is considered **Safe** if:
-- `ascii_ratio > 0.85`
-- `non_printable_ratio < 0.05`
-- `global_entropy < 4.8`
-
-An anomaly is confirmed **only if**:
-- `global_entropy > 4.75`
-- `non_printable_ratio > 0.015`
-
-*This layer significantly reduces false positives.*
+## 🔄 Alur Kerja Sistem
+1. **Pengintaian:** `auto_scanner.py` berjalan diam-diam mengawasi folder `data/sandbox`.
+2. **Ekstraksi Super:** Begitu file masuk, sistem membedah **16 Fitur** (Entropi + PE Header + String Forensik).
+3. **Keputusan AI:** Model *Isolation Forest + HWCL* memproses fitur dalam <1 detik.
+4. **Laporan Visual:** Vonis **✅ AMAN** atau **❌ DIBLOKIR** muncul langsung di Streamlit Dashboard.
 
 ---
 
-## 💻 Panduan Menjalankan Sistem | Usage Commands
+## ⚡ Cara Menjalankan (Quick Start)
 
-**🇮🇩 (ID)**
-Arahkan direktori terminal ke dalam folder `entropy_ids` terlebih dahulu, lalu gunakan perintah berikut:
+### 1. Instalasi
+```bash
+python -m venv .venv
+.venv\Scripts\activate
+pip install pandas numpy scikit-learn watchdog streamlit pefile
+```
 
-1. **Melatih & Menguji Model (Training & CV) 🧪**
-   *Mengeksekusi pipeline pelatihan penuh dengan parameter model 1.0:*
-   ```bash
-   python app/main.py --action train --mode adaptive
-   ```
+### 2. Latih Ulang Model AI (Opsional)
+```bash
+cd entropy_ids
+python tools/run_pipeline.py
+```
 
-2. **Deteksi/Inference Real-Time (Production) 🚀**
-   *Menganalisis file tak dikenal murni menggunakan threshold dari model produksi:*
-   ```bash
-   python app/main.py --action inference
-   ```
+### 3. Hidupkan Antivirus + Dashboard (1-Klik!)
+```
+Klik 2x: entropy_ids/START_HEADS.bat
+```
 
-3. **Audit Kualitas Produksi & Threshold 🔍**
-   *Membaca statistik model dan mengecek kebocoran threshold dinamis:*
-   ```bash
-   python tools/audit_model.py
-   ```
+### 4. Uji Serangan Malware (Simulasi)
+```bash
+cd entropy_ids
+python tools/test_scanner.py
+```
 
-4. **Monitoring Dashboard Langsung 📊**
-   *Membuka live-dashboard untuk memantau trafik anomali secara visual:*
-   ```bash
-   python tools/dashboard_monitor.py
-   ```
+---
 
-**🇬🇧 (EN)**
-Navigate your terminal into the `entropy_ids` folder first, then execute the following commands:
-
-1. **Train & Evaluate Model (Training & CV) 🧪**
-   *Executes the full training pipeline using the 1.0 model parameters:*
-   ```bash
-   python app/main.py --action train --mode adaptive
-   ```
-
-2. **Real-Time Inference (Production) 🚀**
-   *Analyzes fresh unknown files using purely the frozen production threshold:*
-   ```bash
-   python app/main.py --action inference
-   ```
-
-3. **Production Quality & Threshold Audit 🔍**
-   *Reads model statistics and audits for dynamic threshold leakage:*
-   ```bash
-   python tools/audit_model.py
-   ```
-
-4. **Live Monitoring Dashboard 📊**
-   *Deploys the live-terminal dashboard to visually monitor anomaly traffic:*
-   ```bash
-   python tools/dashboard_monitor.py
-   ```
+## 🗂️ Struktur Proyek
+```
+entropy_ids/
+├── app/core/     → Jantung AI (Feature Engine, HWCL, Isolation Forest)
+├── data/sandbox/ → Zona Karantina File Real-Time
+├── docs/         → 📄 Laporan Resmi Remidi v1.5
+├── gui/          → Dashboard Streamlit (Web Monitor)
+├── models/       → Memori AI (.pkl)
+├── tools/        → Scanner, Pipeline, Tester, Upgrade
+├── logs/         → Arsip Audit Historis
+└── START_HEADS.bat → 🚀 Tombol 1-Klik Peluncur
+```
