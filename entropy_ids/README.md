@@ -1,100 +1,74 @@
-# 🛡️ H.E.A.D.S — Hybrid Entropy Anomaly Detection System (v1.0)
+# 🛡️ H.E.A.D.S — Hybrid Entropy Anomaly Detection System (v1.5)
 
-> **Tugas Evaluasi / Remidi**
+> **Tugas Evaluasi / Remidi Akhir**
 > - **Nama:** Adi Suryadi
 > - **Semester:** 4
 > - **Tahun:** 2026
 >
-> 🇮🇩 📖 **[Klik di sini untuk membaca Laporan Remidi (Versi Indonesia)](docs/Laporan_Remidi_HEADS.md)**
-> 
-> 🇬🇧 📖 **[Click here to read the Remedial Report (English Version)](docs/Remedial_Report_HEADS_EN.md)**
+> 📖 **[Klik di sini untuk membaca Laporan Lengkap Remidi (v1.5)](docs/Laporan_Remidi_HEADS_v1.5.md)**
 
 ---
 
 ## 📌 Ringkasan Eksekutif
-Sistem **H.E.A.D.S (v1.0)** telah resmi dibekukan dan siap dioperasikan di lingkungan *Production*. Sistem ini mengombinasikan algoritma **Isolation Forest** dengan **Benign Confirmation Layer** khusus untuk mengenali anomali *(malware payloads, terenkripsi)* berdasarkan analisis fitur berbasis entropi dengan false positive yang mendekati nol.
-
-Model telah diaudit dan menunjukkan Generalisasi yang andal di atas distribusi data riil tanpa mengalami over-sensitivitas *(Alarm Rate < 30%)*.
+Sistem **H.E.A.D.S (v1.5)** telah berevolusi menjadi sebuah *Next-Generation Antivirus (NGAV)* berskala profesional. Sistem ini tidak lagi hanya pasif dan buta terhadap teknik *malware* mutakhir. Dengan mengombinasikan **Isolation Forest**, **pefile Forensics (PE Metadata)**, dan **Pemantauan Real-Time berbasis Streamlit Dashboard**, H.E.A.D.S kini mampu mendeteksi manipulasi memori, teknik *packing*, serta *ransomware* dengan *False Positive* yang sangat rendah.
 
 ---
 
 ## 🏗️ Arsitektur Model Utama
-- **Algoritma Dasar:** `sklearn.ensemble.IsolationForest`
-- **Jumlah Pohon (N_Estimators):** 300
-- **Contamination Ratio:** 0.18 (Tingkat agresivitas telah dikalibrasi realistis dari 0.35)
-- **Persentil Threshold:** 56 (Locked/Persisted)
+- **Otak Utama:** `sklearn.ensemble.IsolationForest`
+- **Integrator Fitur:** Hybrid Weighted Confirmation Layer (HWCL)
+- **Ekstraktor Forensik Lanjut:** `pefile` untuk analisis PE file & API calls.
+- **Visualisasi & Kontrol:** `Streamlit Web Dashboard`
+- **Mesin Patroli Latar Belakang:** `Watchdog File Scanner`
 
-Sistem menggunakan **Locked Threshold Mechanism** pada tahapan komputasinya. Artinya, kalkulasi batas pemutus anomali (Threshold) hanya berlaku dan dihitung pada fase **Train**. Pada fase **Inference / Production**, model murni menarik angka hasil panen pelatihan *(Zero Dynamic Recalculation)* demi menjaga stabilitas pelacakan drift.
+Algoritma dasar kini tidak bekerja sendirian, melainkan di-suplai oleh 16 Kolom Fitur Cerdas yang memantau Anomali Struktural maupun Anomali Tingkah laku ringan (*Suspicious String & API Imports*).
 
 ---
 
 ## 🔄 Alur Kerja Sistem (Workflow)
-Secara garis besar, pendeteksian berjalan otomatis melalui tahap berikut:
-1. **Input Data:** Menerima *file* statis yang disandikan ke dalam representasi log.
-2. **Feature Extraction:** Menghitung susunan 11 metrik fitur (Keacakan Entropi & Rasio Byte).
-3. **Isolation Forest Scoring:** Mengukur angka "Keanehan" *file* dari struktur kepadatan algoritma pohon.
-4. **Threshold Evaluation:** Mengadu skor keanehan dengan batas mutlak (*Persisted Threshold*).
-5. **Benign Confirmation Layer:** Memeriksa kembali klaim "Anomali" untuk mengeksekusi pencegahan *False Positive*.
-6. **Verdict / Output:** Melemparkan status akhir keputusan: `BENIGN` (Aman) atau `ANOMALY` (Ancaman).
+Sistem ini kini sepenuhnya berjalan otomatis tanpa perlu terminal manual yang rumit:
+1. **Pusat Kontrol (Dashboard):** Pengguna menekan *Start* pada UI Web.
+2. **Watchdog Mengintai:** `auto_scanner.py` bersembunyi di latar belakang, mengawasi folder `data/sandbox/`.
+3. **Penyusup Masuk:** Saat file baru dijatuhkan (diunduh/disalin) ke *sandbox*, pemindai bereaksi dalam detik ke-0.
+4. **Ekstraksi Super:** Membedah 16 Fitur termasuk Entropi, Header PE, dan Deteksi URL/PowerShell.
+5. **Vonis AI:** Model Isolation Forest memproses metrik, lalu memuntahkan hasil **DIBLOKIR / AMAN** langsung ke Layar Dashboard.
 
 ---
 
-## 🧬 Feature Engineering (Top 11 Features)
-Sistem V1.0 menggunakan *Feature Density Optimization*. Atribut lemah dan tidak informatif telah dicukur bersih untuk menghindari kebingungan model (Curse of Dimensionality). Fitur kunci yang tersisa:
-1. `global_entropy`
-2. `block_mean_entropy`
-3. `block_std_entropy`
-4. `non_printable_ratio`
-5. `ascii_ratio`
-6. `byte_mean`
-7. `byte_std`
-8. `byte_skewness`
-9. **`entropy_x_nonprint`** *(Kombinasi Baru - Kuat untuk sandi terselubung)*
-10. **`entropy_div_ascii`** *(Kombinasi Baru)*
-11. **`bytestd_div_bytemean`** *(Kombinasi Baru)*
+## 🧬 Feature Engineering (16 Fitur Lanjut)
+Ditingkatkan dari 11 Fitur klasik, sistem kini membaca paspor (*header*) dari aplikasi menggunakan kombinasi Forensik dan Matematika:
+*   `global_entropy` & Analisis Blok (Statistik Keacakan Dasar)
+*   `non_printable_ratio` & `ascii_ratio` (Mendeteksi *Crypter / Padding*)
+*   **[BARU]** `is_executable`: Mendeteksi header EXE/DLL.
+*   **[BARU]** `num_sections`: Mendeteksi pemotongan paspor (*Secton Anomalies*).
+*   **[BARU]** `suspicious_api_count`: Melacak fungsi berisiko seperti `VirtualAlloc`.
+*   **[BARU]** `has_high_entropy_section`: Scan sinar-X untuk mencari *Payload* yang dibungkus (*Packed*).
+*   **[BARU]** `suspicious_string_count`: Menggagalkan trik PowerShell / Base64.
 
 ---
 
-## 🛡️ Benign Confirmation Layer (Strict Mode)
-Fitur unggulan V1.0 adalah validasi ganda dari hasil klaim anomali. Setiap deteksi (label=1) dari hutan algoritma wajib menjalani validasi logika keras:
-- File dianulir dan dikembalikan ke status **Aman (0)** JIKA:
-  1. `ascii_ratio` > 0.85 DAN
-  2. `non_printable_ratio` < 0.05 DAN
-  3. `global_entropy` < 4.8
-- Anomaly dikunci positif HANYA JIKA:
-  `global_entropy` > 4.75 DAN `non_printable_ratio` > 0.015
-
-Layer ini menyumbang penurunan luar biasa terhadap angka *False Positive* (Aman dituduh Malware). 
+## 📊 Metrik Evaluasi Produksi (v1.5)
+Diuji menggunakan simulasi dataset raksasa hasil injeksi PE:
+- **Real F1 Score      :** 0.8889 (Naik drastis dari 0.76)
+- **Precision          :** 0.8889
+- **Recall             :** 0.8889
+- **ROC AUC            :** 0.9471 (Kemampuan membedakan nyaris sempurna)
+- **False Positives    :** Nyaris 0 (Sangat akurat dan stabil).
 
 ---
 
-## 📊 Metrik Evaluasi Produksi Akhir
-Diuji di atas 100 Real-Simulation Data Master Database:
-- **Real F1 Score      :** 0.7636
-- **Precision          :** 0.8400
-- **Recall             :** 0.7000
-- **ROC AUC            :** 0.8467
-- **False Positives    :** Hanya 4 Alarm Palsu (Turun drastis dari 31 Kasus di Beta V4)
-- **False Negatives    :** 9  
-- **Flagged Alarm Rate :** 25.0%
+## 💻 Panduan Menjalankan Sistem (The One-Click Way)
 
----
+Sistem telah dirancang agar bisa dijalankan layaknya aplikasi perusahaan sungguhan oleh *End-User*:
 
-## 💻 Panduan Menjalankan Sistem
+1. **Tombol Start Utama (Menghidupkan Antivirus & Layar Monitor):**
+   Cukup klik ganda (Double Click) file:
+   👉 **`START_HEADS.bat`**
 
-1. **Untuk Melatih & Menguji Model (Pipeline Penuh):**
+2. **Simulasi Serangan (Menguji Mesin):**
+   Buka terminal, dan eksekusi pelempar pancingan 4 virus mutakhir ini:
    ```bash
-   python tools/run_pipeline.py
+   python tools/test_scanner.py
    ```
 
-2. **Untuk Menjalankan Audit Kualitas (Health Check):**
-   ```bash
-   python tools/audit_model.py
-   ```
-
-3. **Untuk Membuka Monitoring Dashboard (Live Terminal):**
-   ```bash
-   python tools/dashboard_monitor.py
-   ```
-
-*(Log Eksekusi & Bukti Audit tersimpan otomatis dalam histori log di direktori `logs/`)*
+*(Log visual akan muncul di Dashboard, sedangkan Audit Sistem Medis akan terekam selamanya di direktori `logs/`)*
