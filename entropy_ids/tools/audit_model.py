@@ -11,7 +11,7 @@ sys.path.insert(0, os.path.join(os.path.dirname(os.path.abspath(__file__)), '../
 
 from config.settings import N_ESTIMATORS, CONTAMINATION_RATIO, PERCENTILE_VALUE
 from core.feature_engine import engineer_features, extract_features_and_labels
-from core.classifier_engine import apply_benign_confirmation
+from core.classifier_engine import apply_hwcl_confirmation
 
 def main():
     print("=" * 60)
@@ -82,8 +82,8 @@ def main():
     inf_threshold = trained_threshold
     preds = (raw_scores < inf_threshold).astype(int)
     
-    # Apply Strict Confirmation
-    final_preds = apply_benign_confirmation(preds, df_processed)
+    # Apply Strict Confirmation (HWCL v2.2)
+    final_preds = apply_hwcl_confirmation(preds, df_processed, raw_scores=raw_scores, cumulative_threshold=0.35)
     
     alarm_rate = (final_preds.sum() / len(final_preds)) * 100
     cm = confusion_matrix(y_true, final_preds, labels=[0, 1])
@@ -138,6 +138,28 @@ def main():
     else:
         print("  ✅ MODEL SEHAT WAL AFIAT!")
         print("  💡 Tindakan: Siap masuk jalur Production.")
+    print("=" * 60)
+
+    # ==========================================
+    # 3️⃣ OPTIONAL: Threshold Sweep Otomatis
+    # ==========================================
+    print("\n🔍 MELAKUKAN THRESHOLD SWEEP UNTUK MENCARI SWEET SPOT (HWCL)")
+    print("-" * 60)
+    for t in [0.25, 0.30, 0.35, 0.40, 0.45, 0.50]:
+        final_preds_sweep = apply_hwcl_confirmation(preds, df_processed, raw_scores=raw_scores, cumulative_threshold=t)
+        
+        sweep_f1 = f1_score(y_true, final_preds_sweep, zero_division=0)
+        sweep_rec = recall_score(y_true, final_preds_sweep, zero_division=0)
+        sweep_prec = precision_score(y_true, final_preds_sweep, zero_division=0)
+        
+        cm_sweep = confusion_matrix(y_true, final_preds_sweep, labels=[0, 1])
+        try:
+            fp_sweep = cm_sweep[0][1]
+            fn_sweep = cm_sweep[1][0]
+        except:
+            fp_sweep = fn_sweep = 0
+            
+        print(f"Threshold [{t:.2f}] -> F1: {sweep_f1:.3f} | Recall: {sweep_rec:.3f} | Precision: {sweep_prec:.3f} | FP: {fp_sweep} | FN: {fn_sweep}")
     print("=" * 60)
 
 if __name__ == "__main__":

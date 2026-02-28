@@ -5,7 +5,7 @@ import os
 # ── Lokasi project ──────────────────────────────────────────────────────────
 ROOT_DIR  = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))
 MAIN_PY   = os.path.join(ROOT_DIR, "app", "main.py")
-PYTHON    = sys.executable  # Python yang sedang aktif di environment ini
+PYTHON    = "python"  # Memaksa penggunaan path python asli yang dipakai oleh terminal user
 
 TRAIN_DATA    = "master_features.csv"
 REAL_DATA     = "master_features.csv"

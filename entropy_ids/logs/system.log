@@ -541,3 +541,294 @@
 2026-02-24 23:38:27,997 - core.evaluation_engine - INFO - Evaluated Metrics -> Precision: 0.8400, Recall: 0.7000, F1: 0.7636, FP: 4, FN: 9
 2026-02-24 23:38:28,005 - controller.hybrid_controller - INFO - Saved mode INFERENCE predictions to D:\malware_entropy_ml\entropy_ids\logs\predictions_inference_adaptive.csv
 2026-02-24 23:38:28,006 - controller.hybrid_controller - INFO - Saved execution metadata to D:\malware_entropy_ml\entropy_ids\logs\metadata_inference_adaptive.json
+2026-02-25 11:33:55,585 - controller.hybrid_controller - INFO - --- Starting Pipeline Execution | Action: INFERENCE | Mode: ADAPTIVE ---
+2026-02-25 11:33:55,629 - controller.hybrid_controller - INFO - Loaded 293 records from D:\malware_entropy_ml\entropy_ids\data\archive\expanded_dataset_v3.csv
+2026-02-25 11:33:55,639 - core.feature_engine - INFO - Extracted 11 features for 293 samples.
+2026-02-25 11:33:55,639 - core.model_engine - INFO - Loading persistent model from D:\malware_entropy_ml\entropy_ids\models\saved_models\production\iso_v1_production.pkl...
+2026-02-25 11:33:55,761 - core.model_engine - INFO - Model loaded successfully. Expected features: 11.
+2026-02-25 11:33:55,805 - controller.hybrid_controller - INFO - Loaded persisted threshold from training metadata.
+2026-02-25 11:33:55,805 - controller.hybrid_controller - INFO - Final threshold applied: -0.0010
+2026-02-25 11:33:55,805 - core.classifier_engine - INFO - Classifying predictions using ADAPTIVE mode thresholding.
+2026-02-25 11:33:55,822 - core.classifier_engine - INFO - Benign confirmation layer active. Overridden 63 False Positives.
+2026-02-25 11:33:55,838 - core.evaluation_engine - INFO - Evaluated Metrics -> Precision: 0.7857, Recall: 0.9252, F1: 0.8498, FP: 27, FN: 8
+2026-02-25 11:33:55,865 - controller.hybrid_controller - INFO - Saved mode INFERENCE predictions to D:\malware_entropy_ml\entropy_ids\logs\predictions_inference_adaptive.csv
+2026-02-25 11:33:55,866 - controller.hybrid_controller - INFO - Saved execution metadata to D:\malware_entropy_ml\entropy_ids\logs\metadata_inference_adaptive.json
+2026-02-28 21:56:37,809 - controller.hybrid_controller - INFO - --- Starting Pipeline Execution | Action: TRAIN | Mode: ADAPTIVE ---
+2026-02-28 21:56:37,821 - controller.hybrid_controller - INFO - Loaded 100 records from D:\malware_entropy_ml\entropy_ids\data\raw\master_features.csv
+2026-02-28 21:56:37,831 - core.feature_engine - INFO - Extracted 11 features for 100 samples.
+2026-02-28 21:56:37,835 - controller.hybrid_controller - INFO - Splitting data -> Train: 70, Test: 30
+2026-02-28 21:56:37,835 - core.model_engine - INFO - Training model on 70 samples...
+2026-02-28 21:56:38,165 - core.model_engine - INFO - Model trained successfully.
+2026-02-28 21:56:38,246 - core.model_engine - INFO - Model and scaler successfully saved to D:\malware_entropy_ml\entropy_ids\models\saved_models\production\iso_v1_production.pkl (Features: 11).
+2026-02-28 21:56:38,268 - core.threshold_engine - INFO - Calculated Adaptive Threshold (Percentile 55): -0.0010
+2026-02-28 21:56:38,268 - controller.hybrid_controller - INFO - Final threshold applied: -0.0010
+2026-02-28 21:56:38,268 - controller.hybrid_controller - INFO - Saved trained threshold metadata to D:\malware_entropy_ml\entropy_ids\models\saved_models\production\iso_v1_production_metadata.json
+2026-02-28 21:56:38,270 - core.classifier_engine - INFO - Classifying predictions using ADAPTIVE mode thresholding.
+2026-02-28 21:56:38,272 - core.hwcl_engine - INFO - [HWCL] Anomaly Score Distribution (N=16): P25=0.269 | Median(P50)=0.755 | P75=0.790 | P90=0.837
+2026-02-28 21:56:38,272 - core.hwcl_engine - INFO - [HWCL] Confirmed: 10 | Mitigated: 6 | Threshold: 0.35
+2026-02-28 21:56:38,280 - core.evaluation_engine - INFO - Evaluated Metrics -> Precision: 0.8000, Recall: 0.8889, F1: 0.8421, FP: 2, FN: 1
+2026-02-28 21:56:38,287 - controller.hybrid_controller - INFO - Saved mode TRAIN predictions to D:\malware_entropy_ml\entropy_ids\logs\predictions_train_adaptive.csv
+2026-02-28 21:56:38,287 - controller.hybrid_controller - INFO - Saved execution metadata to D:\malware_entropy_ml\entropy_ids\logs\metadata_train_adaptive.json
+2026-02-28 21:56:40,093 - controller.hybrid_controller - INFO - --- Starting Pipeline Execution | Action: CV | Mode: ADAPTIVE ---
+2026-02-28 21:56:40,097 - controller.hybrid_controller - INFO - Loaded 100 records from D:\malware_entropy_ml\entropy_ids\data\raw\master_features.csv
+2026-02-28 21:56:40,100 - core.feature_engine - INFO - Extracted 11 features for 100 samples.
+2026-02-28 21:56:40,100 - controller.hybrid_controller - INFO - Starting 5-Fold Cross Validation...
+2026-02-28 21:56:40,111 - core.model_engine - INFO - Training model on 80 samples...
+2026-02-28 21:56:40,390 - core.model_engine - INFO - Model trained successfully.
+2026-02-28 21:56:40,405 - core.threshold_engine - INFO - Calculated Adaptive Threshold (Percentile 55): 0.0314
+2026-02-28 21:56:40,405 - core.classifier_engine - INFO - Classifying predictions using ADAPTIVE mode thresholding.
+2026-02-28 21:56:40,410 - core.hwcl_engine - INFO - [HWCL] Anomaly Score Distribution (N=11): P25=0.265 | Median(P50)=0.276 | P75=0.563 | P90=0.705
+2026-02-28 21:56:40,410 - core.hwcl_engine - INFO - [HWCL] Confirmed: 4 | Mitigated: 7 | Threshold: 0.35
+2026-02-28 21:56:40,415 - core.evaluation_engine - INFO - Evaluated Metrics -> Precision: 1.0000, Recall: 0.6667, F1: 0.8000, FP: 0, FN: 2
+2026-02-28 21:56:40,416 - core.model_engine - INFO - Training model on 80 samples...
+2026-02-28 21:56:40,692 - core.model_engine - INFO - Model trained successfully.
+2026-02-28 21:56:40,708 - core.threshold_engine - INFO - Calculated Adaptive Threshold (Percentile 55): 0.0430
+2026-02-28 21:56:40,710 - core.classifier_engine - INFO - Classifying predictions using ADAPTIVE mode thresholding.
+2026-02-28 21:56:40,712 - core.hwcl_engine - INFO - [HWCL] Anomaly Score Distribution (N=11): P25=0.266 | Median(P50)=0.433 | P75=0.761 | P90=0.770
+2026-02-28 21:56:40,712 - core.hwcl_engine - INFO - [HWCL] Confirmed: 6 | Mitigated: 5 | Threshold: 0.35
+2026-02-28 21:56:40,718 - core.evaluation_engine - INFO - Evaluated Metrics -> Precision: 0.8333, Recall: 0.8333, F1: 0.8333, FP: 1, FN: 1
+2026-02-28 21:56:40,718 - core.model_engine - INFO - Training model on 80 samples...
+2026-02-28 21:56:40,997 - core.model_engine - INFO - Model trained successfully.
+2026-02-28 21:56:41,013 - core.threshold_engine - INFO - Calculated Adaptive Threshold (Percentile 55): 0.0046
+2026-02-28 21:56:41,013 - core.classifier_engine - INFO - Classifying predictions using ADAPTIVE mode thresholding.
+2026-02-28 21:56:41,015 - core.hwcl_engine - INFO - [HWCL] Anomaly Score Distribution (N=11): P25=0.277 | Median(P50)=0.622 | P75=0.729 | P90=0.817
+2026-02-28 21:56:41,015 - core.hwcl_engine - INFO - [HWCL] Confirmed: 7 | Mitigated: 4 | Threshold: 0.35
+2026-02-28 21:56:41,021 - core.evaluation_engine - INFO - Evaluated Metrics -> Precision: 0.8571, Recall: 1.0000, F1: 0.9231, FP: 1, FN: 0
+2026-02-28 21:56:41,021 - core.model_engine - INFO - Training model on 80 samples...
+2026-02-28 21:56:41,292 - core.model_engine - INFO - Model trained successfully.
+2026-02-28 21:56:41,311 - core.threshold_engine - INFO - Calculated Adaptive Threshold (Percentile 55): 0.0144
+2026-02-28 21:56:41,311 - core.classifier_engine - INFO - Classifying predictions using ADAPTIVE mode thresholding.
+2026-02-28 21:56:41,313 - core.hwcl_engine - INFO - [HWCL] Anomaly Score Distribution (N=11): P25=0.276 | Median(P50)=0.488 | P75=0.788 | P90=0.858
+2026-02-28 21:56:41,313 - core.hwcl_engine - INFO - [HWCL] Confirmed: 7 | Mitigated: 4 | Threshold: 0.35
+2026-02-28 21:56:41,318 - core.evaluation_engine - INFO - Evaluated Metrics -> Precision: 0.5714, Recall: 0.6667, F1: 0.6154, FP: 3, FN: 2
+2026-02-28 21:56:41,320 - core.model_engine - INFO - Training model on 80 samples...
+2026-02-28 21:56:41,599 - core.model_engine - INFO - Model trained successfully.
+2026-02-28 21:56:41,611 - core.threshold_engine - INFO - Calculated Adaptive Threshold (Percentile 55): 0.0111
+2026-02-28 21:56:41,611 - core.classifier_engine - INFO - Classifying predictions using ADAPTIVE mode thresholding.
+2026-02-28 21:56:41,616 - core.hwcl_engine - INFO - [HWCL] Anomaly Score Distribution (N=11): P25=0.268 | Median(P50)=0.290 | P75=0.438 | P90=0.728
+2026-02-28 21:56:41,616 - core.hwcl_engine - INFO - [HWCL] Confirmed: 4 | Mitigated: 7 | Threshold: 0.35
+2026-02-28 21:56:41,619 - core.evaluation_engine - INFO - Evaluated Metrics -> Precision: 1.0000, Recall: 0.6667, F1: 0.8000, FP: 0, FN: 2
+2026-02-28 21:56:41,619 - controller.hybrid_controller - INFO - CV completed. Average metrics generated.
+2026-02-28 21:56:43,181 - controller.hybrid_controller - INFO - --- Starting Pipeline Execution | Action: INFERENCE | Mode: ADAPTIVE ---
+2026-02-28 21:56:43,181 - controller.hybrid_controller - INFO - Loaded 100 records from D:\malware_entropy_ml\entropy_ids\data\raw\master_features.csv
+2026-02-28 21:56:43,190 - core.feature_engine - INFO - Extracted 11 features for 100 samples.
+2026-02-28 21:56:43,190 - core.model_engine - INFO - Loading persistent model from D:\malware_entropy_ml\entropy_ids\models\saved_models\production\iso_v1_production.pkl...
+2026-02-28 21:56:43,250 - core.model_engine - INFO - Model loaded successfully. Expected features: 11.
+2026-02-28 21:56:43,270 - controller.hybrid_controller - INFO - Loaded persisted threshold from training metadata.
+2026-02-28 21:56:43,270 - controller.hybrid_controller - INFO - Final threshold applied: -0.0010
+2026-02-28 21:56:43,271 - core.classifier_engine - INFO - Classifying predictions using ADAPTIVE mode thresholding.
+2026-02-28 21:56:43,274 - core.hwcl_engine - INFO - [HWCL] Anomaly Score Distribution (N=40): P25=0.271 | Median(P50)=0.472 | P75=0.757 | P90=0.813
+2026-02-28 21:56:43,274 - core.hwcl_engine - INFO - [HWCL] Confirmed: 23 | Mitigated: 17 | Threshold: 0.35
+2026-02-28 21:56:43,281 - core.evaluation_engine - INFO - Evaluated Metrics -> Precision: 0.8696, Recall: 0.6667, F1: 0.7547, FP: 3, FN: 10
+2026-02-28 21:56:43,293 - controller.hybrid_controller - INFO - Saved mode INFERENCE predictions to D:\malware_entropy_ml\entropy_ids\logs\predictions_inference_adaptive.csv
+2026-02-28 21:56:43,293 - controller.hybrid_controller - INFO - Saved execution metadata to D:\malware_entropy_ml\entropy_ids\logs\metadata_inference_adaptive.json
+2026-02-28 22:48:41,831 - controller.hybrid_controller - INFO - --- Starting Pipeline Execution | Action: TRAIN | Mode: ADAPTIVE ---
+2026-02-28 22:48:41,838 - controller.hybrid_controller - INFO - Loaded 100 records from D:\malware_entropy_ml\entropy_ids\data\raw\master_features.csv
+2026-02-28 22:48:41,846 - core.feature_engine - INFO - Extracted 11 features for 100 samples.
+2026-02-28 22:48:41,851 - controller.hybrid_controller - INFO - Splitting data -> Train: 70, Test: 30
+2026-02-28 22:48:41,851 - core.model_engine - INFO - Training model on 70 samples...
+2026-02-28 22:48:42,155 - core.model_engine - INFO - Model trained successfully.
+2026-02-28 22:48:42,228 - core.model_engine - INFO - Model and scaler successfully saved to D:\malware_entropy_ml\entropy_ids\models\saved_models\production\iso_v1_production.pkl (Features: 11).
+2026-02-28 22:48:42,247 - controller.hybrid_controller - INFO - [Auto-Calibration] ENT_NORMAL: 4.8012 | ENT_ANOM: 5.2851
+2026-02-28 22:48:42,248 - core.threshold_engine - INFO - Calculated Adaptive Threshold (Percentile 55): -0.0010
+2026-02-28 22:48:42,248 - controller.hybrid_controller - INFO - Final threshold applied: -0.0010
+2026-02-28 22:48:42,248 - controller.hybrid_controller - INFO - Saved trained threshold and bounds metadata to D:\malware_entropy_ml\entropy_ids\models\saved_models\production\iso_v1_production_metadata.json
+2026-02-28 22:48:42,249 - core.classifier_engine - INFO - Classifying predictions using ADAPTIVE mode thresholding.
+2026-02-28 22:48:42,250 - core.hwcl_engine - INFO - [HWCL] Anomaly Score Distribution (N=16): P25=0.265 | Median(P50)=0.611 | P75=0.762 | P90=0.814
+2026-02-28 22:48:42,250 - core.hwcl_engine - INFO - [HWCL] Confirmed: 10 | Mitigated: 6 | Threshold: 0.35
+2026-02-28 22:48:42,260 - core.evaluation_engine - INFO - Evaluated Metrics -> Precision: 0.8000, Recall: 0.8889, F1: 0.8421, FP: 2, FN: 1
+2026-02-28 22:48:42,265 - controller.hybrid_controller - INFO - Saved mode TRAIN predictions to D:\malware_entropy_ml\entropy_ids\logs\predictions_train_adaptive.csv
+2026-02-28 22:48:42,266 - controller.hybrid_controller - INFO - Saved execution metadata to D:\malware_entropy_ml\entropy_ids\logs\metadata_train_adaptive.json
+2026-02-28 22:48:44,001 - controller.hybrid_controller - INFO - --- Starting Pipeline Execution | Action: CV | Mode: ADAPTIVE ---
+2026-02-28 22:48:44,005 - controller.hybrid_controller - INFO - Loaded 100 records from D:\malware_entropy_ml\entropy_ids\data\raw\master_features.csv
+2026-02-28 22:48:44,008 - core.feature_engine - INFO - Extracted 11 features for 100 samples.
+2026-02-28 22:48:44,008 - controller.hybrid_controller - INFO - Starting 5-Fold Cross Validation...
+2026-02-28 22:48:44,010 - core.model_engine - INFO - Training model on 80 samples...
+2026-02-28 22:48:44,304 - core.model_engine - INFO - Model trained successfully.
+2026-02-28 22:48:44,348 - core.threshold_engine - INFO - Calculated Adaptive Threshold (Percentile 55): 0.0314
+2026-02-28 22:48:44,355 - core.classifier_engine - INFO - Classifying predictions using ADAPTIVE mode thresholding.
+2026-02-28 22:48:44,378 - core.hwcl_engine - INFO - [HWCL] Anomaly Score Distribution (N=11): P25=0.265 | Median(P50)=0.274 | P75=0.521 | P90=0.677
+2026-02-28 22:48:44,386 - core.hwcl_engine - INFO - [HWCL] Confirmed: 4 | Mitigated: 7 | Threshold: 0.35
+2026-02-28 22:48:44,408 - core.evaluation_engine - INFO - Evaluated Metrics -> Precision: 1.0000, Recall: 0.6667, F1: 0.8000, FP: 0, FN: 2
+2026-02-28 22:48:44,414 - core.model_engine - INFO - Training model on 80 samples...
+2026-02-28 22:48:45,248 - core.model_engine - INFO - Model trained successfully.
+2026-02-28 22:48:45,321 - core.threshold_engine - INFO - Calculated Adaptive Threshold (Percentile 55): 0.0430
+2026-02-28 22:48:45,351 - core.classifier_engine - INFO - Classifying predictions using ADAPTIVE mode thresholding.
+2026-02-28 22:48:45,415 - core.hwcl_engine - INFO - [HWCL] Anomaly Score Distribution (N=11): P25=0.266 | Median(P50)=0.488 | P75=0.761 | P90=0.770
+2026-02-28 22:48:45,425 - core.hwcl_engine - INFO - [HWCL] Confirmed: 6 | Mitigated: 5 | Threshold: 0.35
+2026-02-28 22:48:45,455 - core.evaluation_engine - INFO - Evaluated Metrics -> Precision: 0.8333, Recall: 0.8333, F1: 0.8333, FP: 1, FN: 1
+2026-02-28 22:48:45,483 - core.model_engine - INFO - Training model on 80 samples...
+2026-02-28 22:48:46,210 - core.model_engine - INFO - Model trained successfully.
+2026-02-28 22:48:46,266 - core.threshold_engine - INFO - Calculated Adaptive Threshold (Percentile 55): 0.0046
+2026-02-28 22:48:46,276 - core.classifier_engine - INFO - Classifying predictions using ADAPTIVE mode thresholding.
+2026-02-28 22:48:46,291 - core.hwcl_engine - INFO - [HWCL] Anomaly Score Distribution (N=11): P25=0.277 | Median(P50)=0.647 | P75=0.744 | P90=0.817
+2026-02-28 22:48:46,298 - core.hwcl_engine - INFO - [HWCL] Confirmed: 7 | Mitigated: 4 | Threshold: 0.35
+2026-02-28 22:48:46,332 - core.evaluation_engine - INFO - Evaluated Metrics -> Precision: 0.8571, Recall: 1.0000, F1: 0.9231, FP: 1, FN: 0
+2026-02-28 22:48:46,346 - core.model_engine - INFO - Training model on 80 samples...
+2026-02-28 22:48:47,002 - core.model_engine - INFO - Model trained successfully.
+2026-02-28 22:48:47,046 - core.threshold_engine - INFO - Calculated Adaptive Threshold (Percentile 55): 0.0144
+2026-02-28 22:48:47,053 - core.classifier_engine - INFO - Classifying predictions using ADAPTIVE mode thresholding.
+2026-02-28 22:48:47,063 - core.hwcl_engine - INFO - [HWCL] Anomaly Score Distribution (N=11): P25=0.276 | Median(P50)=0.505 | P75=0.788 | P90=0.858
+2026-02-28 22:48:47,065 - core.hwcl_engine - INFO - [HWCL] Confirmed: 7 | Mitigated: 4 | Threshold: 0.35
+2026-02-28 22:48:47,081 - core.evaluation_engine - INFO - Evaluated Metrics -> Precision: 0.5714, Recall: 0.6667, F1: 0.6154, FP: 3, FN: 2
+2026-02-28 22:48:47,084 - core.model_engine - INFO - Training model on 80 samples...
+2026-02-28 22:48:47,714 - core.model_engine - INFO - Model trained successfully.
+2026-02-28 22:48:47,759 - core.threshold_engine - INFO - Calculated Adaptive Threshold (Percentile 55): 0.0111
+2026-02-28 22:48:47,765 - core.classifier_engine - INFO - Classifying predictions using ADAPTIVE mode thresholding.
+2026-02-28 22:48:47,771 - core.hwcl_engine - INFO - [HWCL] Anomaly Score Distribution (N=11): P25=0.268 | Median(P50)=0.286 | P75=0.419 | P90=0.728
+2026-02-28 22:48:47,771 - core.hwcl_engine - INFO - [HWCL] Confirmed: 4 | Mitigated: 7 | Threshold: 0.35
+2026-02-28 22:48:47,788 - core.evaluation_engine - INFO - Evaluated Metrics -> Precision: 1.0000, Recall: 0.6667, F1: 0.8000, FP: 0, FN: 2
+2026-02-28 22:48:47,791 - controller.hybrid_controller - INFO - CV completed. Average metrics generated.
+2026-02-28 22:49:04,180 - controller.hybrid_controller - INFO - --- Starting Pipeline Execution | Action: INFERENCE | Mode: ADAPTIVE ---
+2026-02-28 22:49:04,200 - controller.hybrid_controller - INFO - Loaded 100 records from D:\malware_entropy_ml\entropy_ids\data\raw\master_features.csv
+2026-02-28 22:49:04,210 - core.feature_engine - INFO - Extracted 11 features for 100 samples.
+2026-02-28 22:49:04,217 - core.model_engine - INFO - Loading persistent model from D:\malware_entropy_ml\entropy_ids\models\saved_models\production\iso_v1_production.pkl...
+2026-02-28 22:49:04,397 - core.model_engine - INFO - Model loaded successfully. Expected features: 11.
+2026-02-28 22:49:04,458 - controller.hybrid_controller - INFO - Loaded persisted threshold and auto-calibrated bounds from training metadata.
+2026-02-28 22:49:04,460 - controller.hybrid_controller - INFO - Final threshold applied: -0.0010
+2026-02-28 22:49:04,461 - core.classifier_engine - INFO - Classifying predictions using ADAPTIVE mode thresholding.
+2026-02-28 22:49:04,471 - core.hwcl_engine - INFO - [HWCL] Anomaly Score Distribution (N=40): P25=0.265 | Median(P50)=0.339 | P75=0.705 | P90=0.774
+2026-02-28 22:49:04,473 - core.hwcl_engine - INFO - [HWCL] Confirmed: 20 | Mitigated: 20 | Threshold: 0.35
+2026-02-28 22:49:04,499 - core.evaluation_engine - INFO - Evaluated Metrics -> Precision: 0.9000, Recall: 0.6000, F1: 0.7200, FP: 2, FN: 12
+2026-02-28 22:49:04,533 - controller.hybrid_controller - INFO - Saved mode INFERENCE predictions to D:\malware_entropy_ml\entropy_ids\logs\predictions_inference_adaptive.csv
+2026-02-28 22:49:04,533 - controller.hybrid_controller - INFO - Saved execution metadata to D:\malware_entropy_ml\entropy_ids\logs\metadata_inference_adaptive.json
+2026-02-28 22:50:25,890 - controller.hybrid_controller - INFO - --- Starting Pipeline Execution | Action: TRAIN | Mode: ADAPTIVE ---
+2026-02-28 22:50:25,895 - controller.hybrid_controller - INFO - Loaded 100 records from D:\malware_entropy_ml\entropy_ids\data\raw\master_features.csv
+2026-02-28 22:50:25,897 - core.feature_engine - INFO - Extracted 11 features for 100 samples.
+2026-02-28 22:50:25,902 - controller.hybrid_controller - INFO - Splitting data -> Train: 70, Test: 30
+2026-02-28 22:50:25,902 - core.model_engine - INFO - Training model on 70 samples...
+2026-02-28 22:50:26,187 - core.model_engine - INFO - Model trained successfully.
+2026-02-28 22:50:26,261 - core.model_engine - INFO - Model and scaler successfully saved to D:\malware_entropy_ml\entropy_ids\models\saved_models\production\iso_v1_production.pkl (Features: 11).
+2026-02-28 22:50:26,281 - controller.hybrid_controller - INFO - [Auto-Calibration] ENT_NORMAL: 4.8012 | ENT_ANOM: 5.2851
+2026-02-28 22:50:26,281 - core.threshold_engine - INFO - Calculated Adaptive Threshold (Percentile 55): -0.0010
+2026-02-28 22:50:26,282 - controller.hybrid_controller - INFO - Final threshold applied: -0.0010
+2026-02-28 22:50:26,282 - controller.hybrid_controller - INFO - Saved trained threshold and bounds metadata to D:\malware_entropy_ml\entropy_ids\models\saved_models\production\iso_v1_production_metadata.json
+2026-02-28 22:50:26,282 - core.classifier_engine - INFO - Classifying predictions using ADAPTIVE mode thresholding.
+2026-02-28 22:50:26,285 - core.hwcl_engine - INFO - [HWCL] Anomaly Score Distribution (N=16): P25=0.265 | Median(P50)=0.611 | P75=0.762 | P90=0.814
+2026-02-28 22:50:26,285 - core.hwcl_engine - INFO - [HWCL] Confirmed: 10 | Mitigated: 6 | Threshold: 0.35
+2026-02-28 22:50:26,291 - core.evaluation_engine - INFO - Evaluated Metrics -> Precision: 0.8000, Recall: 0.8889, F1: 0.8421, FP: 2, FN: 1
+2026-02-28 22:50:26,296 - controller.hybrid_controller - INFO - Saved mode TRAIN predictions to D:\malware_entropy_ml\entropy_ids\logs\predictions_train_adaptive.csv
+2026-02-28 22:50:26,298 - controller.hybrid_controller - INFO - Saved execution metadata to D:\malware_entropy_ml\entropy_ids\logs\metadata_train_adaptive.json
+2026-02-28 22:50:27,918 - controller.hybrid_controller - INFO - --- Starting Pipeline Execution | Action: CV | Mode: ADAPTIVE ---
+2026-02-28 22:50:27,921 - controller.hybrid_controller - INFO - Loaded 100 records from D:\malware_entropy_ml\entropy_ids\data\raw\master_features.csv
+2026-02-28 22:50:27,925 - core.feature_engine - INFO - Extracted 11 features for 100 samples.
+2026-02-28 22:50:27,925 - controller.hybrid_controller - INFO - Starting 5-Fold Cross Validation...
+2026-02-28 22:50:27,927 - core.model_engine - INFO - Training model on 80 samples...
+2026-02-28 22:50:28,209 - core.model_engine - INFO - Model trained successfully.
+2026-02-28 22:50:28,226 - core.threshold_engine - INFO - Calculated Adaptive Threshold (Percentile 55): 0.0314
+2026-02-28 22:50:28,227 - core.classifier_engine - INFO - Classifying predictions using ADAPTIVE mode thresholding.
+2026-02-28 22:50:28,231 - core.hwcl_engine - INFO - [HWCL] Anomaly Score Distribution (N=11): P25=0.265 | Median(P50)=0.274 | P75=0.521 | P90=0.677
+2026-02-28 22:50:28,231 - core.hwcl_engine - INFO - [HWCL] Confirmed: 4 | Mitigated: 7 | Threshold: 0.35
+2026-02-28 22:50:28,236 - core.evaluation_engine - INFO - Evaluated Metrics -> Precision: 1.0000, Recall: 0.6667, F1: 0.8000, FP: 0, FN: 2
+2026-02-28 22:50:28,236 - core.model_engine - INFO - Training model on 80 samples...
+2026-02-28 22:50:28,509 - core.model_engine - INFO - Model trained successfully.
+2026-02-28 22:50:28,526 - core.threshold_engine - INFO - Calculated Adaptive Threshold (Percentile 55): 0.0430
+2026-02-28 22:50:28,528 - core.classifier_engine - INFO - Classifying predictions using ADAPTIVE mode thresholding.
+2026-02-28 22:50:28,529 - core.hwcl_engine - INFO - [HWCL] Anomaly Score Distribution (N=11): P25=0.266 | Median(P50)=0.488 | P75=0.761 | P90=0.770
+2026-02-28 22:50:28,529 - core.hwcl_engine - INFO - [HWCL] Confirmed: 6 | Mitigated: 5 | Threshold: 0.35
+2026-02-28 22:50:28,535 - core.evaluation_engine - INFO - Evaluated Metrics -> Precision: 0.8333, Recall: 0.8333, F1: 0.8333, FP: 1, FN: 1
+2026-02-28 22:50:28,535 - core.model_engine - INFO - Training model on 80 samples...
+2026-02-28 22:50:28,810 - core.model_engine - INFO - Model trained successfully.
+2026-02-28 22:50:28,828 - core.threshold_engine - INFO - Calculated Adaptive Threshold (Percentile 55): 0.0046
+2026-02-28 22:50:28,829 - core.classifier_engine - INFO - Classifying predictions using ADAPTIVE mode thresholding.
+2026-02-28 22:50:28,831 - core.hwcl_engine - INFO - [HWCL] Anomaly Score Distribution (N=11): P25=0.277 | Median(P50)=0.647 | P75=0.744 | P90=0.817
+2026-02-28 22:50:28,831 - core.hwcl_engine - INFO - [HWCL] Confirmed: 7 | Mitigated: 4 | Threshold: 0.35
+2026-02-28 22:50:28,835 - core.evaluation_engine - INFO - Evaluated Metrics -> Precision: 0.8571, Recall: 1.0000, F1: 0.9231, FP: 1, FN: 0
+2026-02-28 22:50:28,835 - core.model_engine - INFO - Training model on 80 samples...
+2026-02-28 22:50:29,100 - core.model_engine - INFO - Model trained successfully.
+2026-02-28 22:50:29,118 - core.threshold_engine - INFO - Calculated Adaptive Threshold (Percentile 55): 0.0144
+2026-02-28 22:50:29,120 - core.classifier_engine - INFO - Classifying predictions using ADAPTIVE mode thresholding.
+2026-02-28 22:50:29,120 - core.hwcl_engine - INFO - [HWCL] Anomaly Score Distribution (N=11): P25=0.276 | Median(P50)=0.505 | P75=0.788 | P90=0.858
+2026-02-28 22:50:29,120 - core.hwcl_engine - INFO - [HWCL] Confirmed: 7 | Mitigated: 4 | Threshold: 0.35
+2026-02-28 22:50:29,127 - core.evaluation_engine - INFO - Evaluated Metrics -> Precision: 0.5714, Recall: 0.6667, F1: 0.6154, FP: 3, FN: 2
+2026-02-28 22:50:29,128 - core.model_engine - INFO - Training model on 80 samples...
+2026-02-28 22:50:29,396 - core.model_engine - INFO - Model trained successfully.
+2026-02-28 22:50:29,412 - core.threshold_engine - INFO - Calculated Adaptive Threshold (Percentile 55): 0.0111
+2026-02-28 22:50:29,412 - core.classifier_engine - INFO - Classifying predictions using ADAPTIVE mode thresholding.
+2026-02-28 22:50:29,415 - core.hwcl_engine - INFO - [HWCL] Anomaly Score Distribution (N=11): P25=0.268 | Median(P50)=0.286 | P75=0.419 | P90=0.728
+2026-02-28 22:50:29,415 - core.hwcl_engine - INFO - [HWCL] Confirmed: 4 | Mitigated: 7 | Threshold: 0.35
+2026-02-28 22:50:29,418 - core.evaluation_engine - INFO - Evaluated Metrics -> Precision: 1.0000, Recall: 0.6667, F1: 0.8000, FP: 0, FN: 2
+2026-02-28 22:50:29,418 - controller.hybrid_controller - INFO - CV completed. Average metrics generated.
+2026-02-28 22:50:31,027 - controller.hybrid_controller - INFO - --- Starting Pipeline Execution | Action: INFERENCE | Mode: ADAPTIVE ---
+2026-02-28 22:50:31,032 - controller.hybrid_controller - INFO - Loaded 100 records from D:\malware_entropy_ml\entropy_ids\data\raw\master_features.csv
+2026-02-28 22:50:31,035 - core.feature_engine - INFO - Extracted 11 features for 100 samples.
+2026-02-28 22:50:31,035 - core.model_engine - INFO - Loading persistent model from D:\malware_entropy_ml\entropy_ids\models\saved_models\production\iso_v1_production.pkl...
+2026-02-28 22:50:31,093 - core.model_engine - INFO - Model loaded successfully. Expected features: 11.
+2026-02-28 22:50:31,123 - controller.hybrid_controller - INFO - Loaded persisted threshold and auto-calibrated bounds from training metadata.
+2026-02-28 22:50:31,123 - controller.hybrid_controller - INFO - Final threshold applied: -0.0010
+2026-02-28 22:50:31,123 - core.classifier_engine - INFO - Classifying predictions using ADAPTIVE mode thresholding.
+2026-02-28 22:50:31,127 - core.hwcl_engine - INFO - [HWCL] Anomaly Score Distribution (N=40): P25=0.265 | Median(P50)=0.339 | P75=0.705 | P90=0.774
+2026-02-28 22:50:31,127 - core.hwcl_engine - INFO - [HWCL] Confirmed: 20 | Mitigated: 20 | Threshold: 0.35
+2026-02-28 22:50:31,136 - core.evaluation_engine - INFO - Evaluated Metrics -> Precision: 0.9000, Recall: 0.6000, F1: 0.7200, FP: 2, FN: 12
+2026-02-28 22:50:31,149 - controller.hybrid_controller - INFO - Saved mode INFERENCE predictions to D:\malware_entropy_ml\entropy_ids\logs\predictions_inference_adaptive.csv
+2026-02-28 22:50:31,149 - controller.hybrid_controller - INFO - Saved execution metadata to D:\malware_entropy_ml\entropy_ids\logs\metadata_inference_adaptive.json
+2026-03-01 01:38:46,300 - controller.hybrid_controller - INFO - --- Starting Pipeline Execution | Action: TRAIN | Mode: ADAPTIVE ---
+2026-03-01 01:38:46,327 - controller.hybrid_controller - INFO - Loaded 100 records from D:\malware_entropy_ml\entropy_ids\data\raw\master_features.csv
+2026-03-01 01:38:46,334 - core.feature_engine - INFO - Extracted 16 features for 100 samples.
+2026-03-01 01:38:46,339 - controller.hybrid_controller - INFO - Splitting data -> Train: 70, Test: 30
+2026-03-01 01:38:46,339 - core.model_engine - INFO - Training model on 70 samples...
+2026-03-01 01:38:46,708 - core.model_engine - INFO - Model trained successfully.
+2026-03-01 01:38:46,802 - core.model_engine - INFO - Model and scaler successfully saved to D:\malware_entropy_ml\entropy_ids\models\saved_models\production\iso_v1_production.pkl (Features: 16).
+2026-03-01 01:38:46,826 - controller.hybrid_controller - INFO - [Auto-Calibration] ENT_NORMAL: 4.8012 | ENT_ANOM: 5.2851
+2026-03-01 01:38:46,826 - core.threshold_engine - INFO - Calculated Adaptive Threshold (Percentile 55): 0.0247
+2026-03-01 01:38:46,826 - controller.hybrid_controller - INFO - Final threshold applied: 0.0247
+2026-03-01 01:38:46,827 - controller.hybrid_controller - INFO - Saved trained threshold and bounds metadata to D:\malware_entropy_ml\entropy_ids\models\saved_models\production\iso_v1_production_metadata.json
+2026-03-01 01:38:46,827 - core.classifier_engine - INFO - Classifying predictions using ADAPTIVE mode thresholding.
+2026-03-01 01:38:46,830 - core.hwcl_engine - INFO - [HWCL] Anomaly Score Distribution (N=16): P25=0.271 | Median(P50)=0.611 | P75=0.762 | P90=0.814
+2026-03-01 01:38:46,832 - core.hwcl_engine - INFO - [HWCL] Confirmed: 9 | Mitigated: 7 | Threshold: 0.35
+2026-03-01 01:38:46,842 - core.evaluation_engine - INFO - Evaluated Metrics -> Precision: 0.8889, Recall: 0.8889, F1: 0.8889, FP: 1, FN: 1
+2026-03-01 01:38:46,851 - controller.hybrid_controller - INFO - Saved mode TRAIN predictions to D:\malware_entropy_ml\entropy_ids\logs\predictions_train_adaptive.csv
+2026-03-01 01:38:46,852 - controller.hybrid_controller - INFO - Saved execution metadata to D:\malware_entropy_ml\entropy_ids\logs\metadata_train_adaptive.json
+2026-03-01 01:38:48,725 - controller.hybrid_controller - INFO - --- Starting Pipeline Execution | Action: CV | Mode: ADAPTIVE ---
+2026-03-01 01:38:48,729 - controller.hybrid_controller - INFO - Loaded 100 records from D:\malware_entropy_ml\entropy_ids\data\raw\master_features.csv
+2026-03-01 01:38:48,733 - core.feature_engine - INFO - Extracted 16 features for 100 samples.
+2026-03-01 01:38:48,733 - controller.hybrid_controller - INFO - Starting 5-Fold Cross Validation...
+2026-03-01 01:38:48,734 - core.model_engine - INFO - Training model on 80 samples...
+2026-03-01 01:38:49,008 - core.model_engine - INFO - Model trained successfully.
+2026-03-01 01:38:49,028 - core.threshold_engine - INFO - Calculated Adaptive Threshold (Percentile 55): 0.0433
+2026-03-01 01:38:49,031 - core.classifier_engine - INFO - Classifying predictions using ADAPTIVE mode thresholding.
+2026-03-01 01:38:49,033 - core.hwcl_engine - INFO - [HWCL] Anomaly Score Distribution (N=11): P25=0.265 | Median(P50)=0.276 | P75=0.580 | P90=0.677
+2026-03-01 01:38:49,033 - core.hwcl_engine - INFO - [HWCL] Confirmed: 5 | Mitigated: 6 | Threshold: 0.35
+2026-03-01 01:38:49,039 - core.evaluation_engine - INFO - Evaluated Metrics -> Precision: 0.8000, Recall: 0.6667, F1: 0.7273, FP: 1, FN: 2
+2026-03-01 01:38:49,039 - core.model_engine - INFO - Training model on 80 samples...
+2026-03-01 01:38:49,315 - core.model_engine - INFO - Model trained successfully.
+2026-03-01 01:38:49,331 - core.threshold_engine - INFO - Calculated Adaptive Threshold (Percentile 55): 0.0630
+2026-03-01 01:38:49,334 - core.classifier_engine - INFO - Classifying predictions using ADAPTIVE mode thresholding.
+2026-03-01 01:38:49,335 - core.hwcl_engine - INFO - [HWCL] Anomaly Score Distribution (N=11): P25=0.266 | Median(P50)=0.488 | P75=0.767 | P90=0.819
+2026-03-01 01:38:49,336 - core.hwcl_engine - INFO - [HWCL] Confirmed: 6 | Mitigated: 5 | Threshold: 0.35
+2026-03-01 01:38:49,341 - core.evaluation_engine - INFO - Evaluated Metrics -> Precision: 1.0000, Recall: 1.0000, F1: 1.0000, FP: 0, FN: 0
+2026-03-01 01:38:49,343 - core.model_engine - INFO - Training model on 80 samples...
+2026-03-01 01:38:49,671 - core.model_engine - INFO - Model trained successfully.
+2026-03-01 01:38:49,692 - core.threshold_engine - INFO - Calculated Adaptive Threshold (Percentile 55): 0.0441
+2026-03-01 01:38:49,693 - core.classifier_engine - INFO - Classifying predictions using ADAPTIVE mode thresholding.
+2026-03-01 01:38:49,695 - core.hwcl_engine - INFO - [HWCL] Anomaly Score Distribution (N=11): P25=0.270 | Median(P50)=0.647 | P75=0.744 | P90=0.817
+2026-03-01 01:38:49,696 - core.hwcl_engine - INFO - [HWCL] Confirmed: 6 | Mitigated: 5 | Threshold: 0.35
+2026-03-01 01:38:49,701 - core.evaluation_engine - INFO - Evaluated Metrics -> Precision: 1.0000, Recall: 1.0000, F1: 1.0000, FP: 0, FN: 0
+2026-03-01 01:38:49,702 - core.model_engine - INFO - Training model on 80 samples...
+2026-03-01 01:38:50,039 - core.model_engine - INFO - Model trained successfully.
+2026-03-01 01:38:50,054 - core.threshold_engine - INFO - Calculated Adaptive Threshold (Percentile 55): -0.0001
+2026-03-01 01:38:50,057 - core.classifier_engine - INFO - Classifying predictions using ADAPTIVE mode thresholding.
+2026-03-01 01:38:50,060 - core.hwcl_engine - INFO - [HWCL] Anomaly Score Distribution (N=11): P25=0.249 | Median(P50)=0.411 | P75=0.788 | P90=0.858
+2026-03-01 01:38:50,060 - core.hwcl_engine - INFO - [HWCL] Confirmed: 6 | Mitigated: 5 | Threshold: 0.35
+2026-03-01 01:38:50,067 - core.evaluation_engine - INFO - Evaluated Metrics -> Precision: 0.6667, Recall: 0.6667, F1: 0.6667, FP: 2, FN: 2
+2026-03-01 01:38:50,067 - core.model_engine - INFO - Training model on 80 samples...
+2026-03-01 01:38:50,339 - core.model_engine - INFO - Model trained successfully.
+2026-03-01 01:38:50,354 - core.threshold_engine - INFO - Calculated Adaptive Threshold (Percentile 55): 0.0229
+2026-03-01 01:38:50,357 - core.classifier_engine - INFO - Classifying predictions using ADAPTIVE mode thresholding.
+2026-03-01 01:38:50,358 - core.hwcl_engine - INFO - [HWCL] Anomaly Score Distribution (N=11): P25=0.275 | Median(P50)=0.290 | P75=0.559 | P90=0.728
+2026-03-01 01:38:50,358 - core.hwcl_engine - INFO - [HWCL] Confirmed: 5 | Mitigated: 6 | Threshold: 0.35
+2026-03-01 01:38:50,364 - core.evaluation_engine - INFO - Evaluated Metrics -> Precision: 0.8000, Recall: 0.6667, F1: 0.7273, FP: 1, FN: 2
+2026-03-01 01:38:50,365 - controller.hybrid_controller - INFO - CV completed. Average metrics generated.
+2026-03-01 01:38:51,987 - controller.hybrid_controller - INFO - --- Starting Pipeline Execution | Action: INFERENCE | Mode: ADAPTIVE ---
+2026-03-01 01:38:51,990 - controller.hybrid_controller - INFO - Loaded 100 records from D:\malware_entropy_ml\entropy_ids\data\raw\master_features.csv
+2026-03-01 01:38:51,994 - core.feature_engine - INFO - Extracted 16 features for 100 samples.
+2026-03-01 01:38:51,994 - core.model_engine - INFO - Loading persistent model from D:\malware_entropy_ml\entropy_ids\models\saved_models\production\iso_v1_production.pkl...
+2026-03-01 01:38:52,069 - core.model_engine - INFO - Model loaded successfully. Expected features: 16.
+2026-03-01 01:38:52,104 - controller.hybrid_controller - INFO - Loaded persisted threshold and auto-calibrated bounds from training metadata.
+2026-03-01 01:38:52,104 - controller.hybrid_controller - INFO - Final threshold applied: 0.0247
+2026-03-01 01:38:52,105 - core.classifier_engine - INFO - Classifying predictions using ADAPTIVE mode thresholding.
+2026-03-01 01:38:52,109 - core.hwcl_engine - INFO - [HWCL] Anomaly Score Distribution (N=46): P25=0.269 | Median(P50)=0.395 | P75=0.726 | P90=0.799
+2026-03-01 01:38:52,110 - core.hwcl_engine - INFO - [HWCL] Confirmed: 24 | Mitigated: 22 | Threshold: 0.35
+2026-03-01 01:38:52,117 - core.evaluation_engine - INFO - Evaluated Metrics -> Precision: 0.8750, Recall: 0.7000, F1: 0.7778, FP: 3, FN: 9
+2026-03-01 01:38:52,129 - controller.hybrid_controller - INFO - Saved mode INFERENCE predictions to D:\malware_entropy_ml\entropy_ids\logs\predictions_inference_adaptive.csv
+2026-03-01 01:38:52,129 - controller.hybrid_controller - INFO - Saved execution metadata to D:\malware_entropy_ml\entropy_ids\logs\metadata_inference_adaptive.json

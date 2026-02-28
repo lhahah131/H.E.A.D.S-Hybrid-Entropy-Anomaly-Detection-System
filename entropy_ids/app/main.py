@@ -43,6 +43,7 @@ def main():
         os.path.join(DATA_DIR, args.data),                          # data/features/
         os.path.join(base_data_dir, "synthetic", args.data),        # data/synthetic/
         os.path.join(base_data_dir, "raw", args.data),              # data/raw/
+        os.path.join(base_data_dir, "archive", args.data),          # data/archive/
         os.path.join(base_data_dir, "final_datashet", args.data),   # data/final_datashet/
     ]
     

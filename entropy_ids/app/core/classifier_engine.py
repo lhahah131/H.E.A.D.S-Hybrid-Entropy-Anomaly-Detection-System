@@ -23,32 +23,4 @@ def classify_predictions(scores: np.ndarray, threshold: float, mode: str, scaler
         raise ValueError(f"Unknown mode: {mode}")
     return preds
 
-def apply_benign_confirmation(preds: np.ndarray, df: pd.DataFrame, indices=None) -> np.ndarray:
-    """
-    Overrides predicted anomalies (1) to benign (0) if they meet benign profile criteria.
-    """
-    overridden_count = 0
-    final_preds = preds.copy()
-    
-    iterator = range(len(final_preds)) if indices is None else indices
-
-    for j, idx in enumerate(iterator):
-        if final_preds[j] == 1:
-            row = df.iloc[idx]
-            
-            # Base benign confirmation rule
-            is_benign_profile = (row.get("ascii_ratio", 0) > ASCII_RATIO_MIN and 
-                row.get("non_printable_ratio", 1) < NON_PRINTABLE_RATIO_MAX and 
-                row.get("global_entropy", 10) < GLOBAL_ENTROPY_MAX)
-            
-            # Strict confirmation rule for true anomali:
-            # We enforce that anomaly must have entropy > 4.75 and non_printable > 0.015
-            is_strict_anomaly = (row.get("global_entropy", 0) > 4.75 and 
-                                 row.get("non_printable_ratio", 0) > 0.015)
-
-            if is_benign_profile or not is_strict_anomaly:
-                final_preds[j] = 0
-                overridden_count += 1
-                
-    logger.info(f"Benign confirmation layer active. Overridden {overridden_count} False Positives.")
-    return final_preds
+from core.hwcl_engine import apply_hwcl_confirmation

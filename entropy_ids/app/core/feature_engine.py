@@ -28,7 +28,9 @@ def extract_features_and_labels(df: pd.DataFrame):
         "global_entropy", "block_mean_entropy", "block_std_entropy",
         "non_printable_ratio", "ascii_ratio", 
         "byte_mean", "byte_std", "byte_skewness",
-        "entropy_x_nonprint", "entropy_div_ascii", "bytestd_div_bytemean"
+        "entropy_x_nonprint", "entropy_div_ascii", "bytestd_div_bytemean",
+        "is_executable", "num_sections", "suspicious_api_count", 
+        "has_high_entropy_section", "suspicious_string_count"
     ]
     
     missing = [c for c in feature_cols if c not in df.columns]

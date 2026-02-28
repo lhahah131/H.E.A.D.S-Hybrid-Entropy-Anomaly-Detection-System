@@ -4,8 +4,10 @@
 > - **Nama:** Adi Suryadi
 > - **Semester:** 4
 > - **Tahun:** 2026
-
-> �📖 **[Klik di sini untuk membaca Laporan Remidi Selengkapnya](docs/Laporan_Remidi_HEADS.md)**
+>
+> 🇮🇩 📖 **[Klik di sini untuk membaca Laporan Remidi (Versi Indonesia)](docs/Laporan_Remidi_HEADS.md)**
+> 
+> 🇬🇧 📖 **[Click here to read the Remedial Report (English Version)](docs/Remedial_Report_HEADS_EN.md)**
 
 ---
 

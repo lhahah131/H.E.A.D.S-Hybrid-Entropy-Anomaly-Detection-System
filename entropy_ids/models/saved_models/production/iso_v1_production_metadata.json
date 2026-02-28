@@ -1,6 +1,12 @@
 {
-    "trained_threshold": -0.0009971977385673956,
+    "trained_threshold": 0.024701912248446492,
     "mode": "adaptive",
     "percentile": 55,
-    "timestamp": "2026-02-24T23:38:22.677359"
+    "calibrated_bounds": {
+        "ENT_NORMAL": 4.801243313228677,
+        "ENT_ANOM": 5.28511531208984,
+        "NP_NORMAL": 0.01,
+        "NP_ANOM": 0.08
+    },
+    "timestamp": "2026-03-01T01:38:46.826178"
 }

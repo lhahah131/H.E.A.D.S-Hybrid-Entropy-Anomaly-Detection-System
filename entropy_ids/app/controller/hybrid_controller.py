@@ -9,7 +9,7 @@ from sklearn.model_selection import train_test_split, StratifiedKFold
 from core.feature_engine import engineer_features, extract_features_and_labels
 from core.model_engine import BaseAnomalyModel
 from core.threshold_engine import BaseThreshold
-from core.classifier_engine import classify_predictions, apply_benign_confirmation
+from core.classifier_engine import classify_predictions, apply_hwcl_confirmation
 from core.evaluation_engine import evaluate_metrics
 from config.settings import LOG_DIR, TRAIN_TEST_SPLIT, RANDOM_STATE, CV_FOLDS, PERCENTILE_VALUE
 
@@ -122,8 +122,25 @@ class HybridController:
                 else:
                     anomaly_scores_for_auc = 1 - scaler_roc.transform(raw_scores.reshape(-1, 1)).flatten()
                     
+                
+                # --- AUTO-CALIBRATION for fold ---
+                fold_b_mask = (y_train_cv == 0)
+                fold_a_mask = (y_train_cv == 1)
+                b_mean = df_processed.iloc[train_idx][fold_b_mask]["global_entropy"].mean()
+                b_std = df_processed.iloc[train_idx][fold_b_mask]["global_entropy"].std()
+                a_mean = df_processed.iloc[train_idx][fold_a_mask]["global_entropy"].mean()
+                a_std = df_processed.iloc[train_idx][fold_a_mask]["global_entropy"].std()
+                
+                # Safe fallback if fold data is sparse
+                fold_bounds = {
+                    "ENT_NORMAL": float(b_mean + (0.75 * b_std)) if not pd.isna(b_mean) else 4.746,
+                    "ENT_ANOM": float(a_mean - (0.25 * a_std)) if not pd.isna(a_mean) else 5.138,
+                    "NP_NORMAL": 0.01,
+                    "NP_ANOM": 0.08
+                }
+                
                 preds = classify_predictions(raw_scores, t, mode, scaler_roc)
-                final_preds = apply_benign_confirmation(preds, df_test_cv)
+                final_preds = apply_hwcl_confirmation(preds, df_test_cv, raw_scores=raw_scores, cumulative_threshold=0.35, calibrated_bounds=fold_bounds)
                 
                 m = evaluate_metrics(y_test_cv, final_preds, anomaly_scores_for_auc)
                 for k in cv_metrics:
@@ -137,6 +154,31 @@ class HybridController:
 
         else:
             raise ValueError(f"Unknown action: {action}")
+
+    def _calculate_risk_scores(self, raw_scores, threshold):
+        """
+        Transforms raw Isolation Forest scores into a 0-100% risk score
+        and assigns a severity level based on the anomaly score.
+        """
+        k = 15 # Scaling factor for the sigmoid curve
+        scores = np.array(raw_scores)
+        
+        # Sigmoid mapping centered at threshold
+        risk_probs = 1 / (1 + np.exp((scores - threshold) * k))
+        risk_scores_percent = np.clip(risk_probs * 100, 0, 100)
+        
+        severities = []
+        for rs in risk_scores_percent:
+            if rs <= 35:
+                severities.append("SAFE")
+            elif rs <= 55:
+                severities.append("LOW RISK")
+            elif rs <= 75:
+                severities.append("SUSPICIOUS")
+            else:
+                severities.append("CRITICAL RISK")
+                
+        return np.round(risk_scores_percent, 2), np.array(severities)
 
     def _evaluate_and_log(self, X, y_true, df_processed, mode, action, train_size, test_size):
         # -------------------------------------------------------------
@@ -162,16 +204,36 @@ class HybridController:
                 # Recovery suceeded, retry scoring
                 raw_scores = self.model.get_scores(X)
         
-        # Determine threshold
+        # Determine threshold and HWCL Bounds
+        calibrated_bounds = None
         if action == "train":
+            # --- HWCL AUTO-CALIBRATION LOGIC ---
+            benign_mask = (y_true == 0)
+            anomaly_mask = (y_true == 1)
+            
+            b_mean = df_processed[benign_mask]["global_entropy"].mean()
+            b_std = df_processed[benign_mask]["global_entropy"].std()
+            a_mean = df_processed[anomaly_mask]["global_entropy"].mean()
+            a_std = df_processed[anomaly_mask]["global_entropy"].std()
+            
+            calibrated_bounds = {
+                "ENT_NORMAL": float(b_mean + (0.75 * b_std)) if not pd.isna(b_mean) else 4.746,
+                "ENT_ANOM": float(a_mean - (0.25 * a_std)) if not pd.isna(a_mean) else 5.138,
+                "NP_NORMAL": 0.01,
+                "NP_ANOM": 0.08
+            }
+            logger.info(f"[Auto-Calibration] ENT_NORMAL: {calibrated_bounds['ENT_NORMAL']:.4f} | ENT_ANOM: {calibrated_bounds['ENT_ANOM']:.4f}")
+            # ------------------------------------
+            
             threshold, scaler_roc = self.threshold_engine.compute(raw_scores, y_true)
             logger.info(f"Final threshold applied: {threshold:.4f}")
-            self._save_trained_threshold(threshold, mode)
+            self._save_trained_metadata(threshold, mode, calibrated_bounds)
         elif action == "inference":
             scaler_roc = None
-            original_threshold = self._load_trained_threshold()
+            original_threshold, original_bounds = self._load_trained_metadata()
             threshold = original_threshold
-            logger.info("Loaded persisted threshold from training metadata.")
+            calibrated_bounds = original_bounds
+            logger.info("Loaded persisted threshold and auto-calibrated bounds from training metadata.")
             logger.info(f"Final threshold applied: {threshold:.4f}")
         
         # Calculate auc scores format
@@ -183,14 +245,24 @@ class HybridController:
         # Classification
         preds = classify_predictions(raw_scores, threshold, mode, scaler_roc)
         
-        # Benign Confirmation Layer
-        final_preds = apply_benign_confirmation(preds, df_processed)
+        # Hybrid Weighted Confirmation Layer (HWCL v2.2)
+        final_preds = apply_hwcl_confirmation(preds, df_processed, raw_scores=raw_scores, cumulative_threshold=0.35, calibrated_bounds=calibrated_bounds)
+        
+        # Calculate Risk Score and Severity (v2.0 feature)
+        risk_scores, severities = self._calculate_risk_scores(raw_scores, threshold)
+        
+        # For Strict Mode (Benign Confirmation), adjust risk scores heavily if confirmed benign
+        # If model predicted anomaly but layer changed it to benign
+        for i in range(len(final_preds)):
+            if preds[i] == 1 and final_preds[i] == 0:
+                risk_scores[i] = min(risk_scores[i], 35.0)
+                severities[i] = "SAFE (Mitigated)"
         
         # Evaluation
         metrics = evaluate_metrics(y_true, final_preds, anomaly_scores_for_auc)
         
         # Save predictions & metadata
-        self._save_results(action, mode, df_processed, final_preds, raw_scores, threshold, metrics, train_size, test_size)
+        self._save_results(action, mode, df_processed, final_preds, raw_scores, threshold, metrics, train_size, test_size, risk_scores, severities)
         
         return metrics, threshold
 
@@ -252,10 +324,27 @@ class HybridController:
         logger.info(f"Generated SAFE_MODE payload: {json.dumps(response)}")
         return response, None
 
-    def _save_results(self, action, mode, df_processed, final_preds, raw_scores, threshold, metrics, train_size, test_size):
+    def _save_results(self, action, mode, df_processed, final_preds, raw_scores, threshold, metrics, train_size, test_size, risk_scores=None, severities=None):
         output_df = df_processed.copy()
         output_df["pred_anomaly"] = final_preds
         output_df["raw_score"] = raw_scores
+        
+        if risk_scores is not None and severities is not None:
+            output_df["risk_score_percent"] = risk_scores
+            output_df["severity"] = severities
+            
+            # Print snapshot to terminal if running inference
+            if action == "inference":
+                print("\n[v2.0] --- LIVE ASSET RISK ANALYSIS SNAPSHOT ---")
+                display_limit = min(10, len(output_df))
+                for idx in range(display_limit):
+                    row = output_df.iloc[idx]
+                    print(f"[*] File ID/Index: {idx}")
+                    print(f"    Raw Score    : {row['raw_score']:.4f}")
+                    print(f"    Risk (%)     : {row['risk_score_percent']}%")
+                    print(f"    Severity     : {row['severity']}")
+                    print(f"    Verdict      : {'ANOMALY' if row['pred_anomaly'] == 1 else 'BENIGN'}")
+                    print("-" * 45)
         
         os.makedirs(LOG_DIR, exist_ok=True)
         # Predictions
@@ -281,7 +370,7 @@ class HybridController:
             json.dump(metadata, f, indent=4)
         logger.info(f"Saved execution metadata to {meta_path}")
 
-    def _save_trained_threshold(self, threshold: float, mode: str):
+    def _save_trained_metadata(self, threshold: float, mode: str, calibrated_bounds: dict):
         if not self._model_save_path:
             return
         meta_path = self._model_save_path.replace(".pkl", "_metadata.json")
@@ -289,19 +378,20 @@ class HybridController:
             "trained_threshold": threshold,
             "mode": mode,
             "percentile": PERCENTILE_VALUE,
+            "calibrated_bounds": calibrated_bounds,
             "timestamp": datetime.datetime.now().isoformat()
         }
         os.makedirs(os.path.dirname(meta_path), exist_ok=True)
         with open(meta_path, "w") as f:
             json.dump(payload, f, indent=4)
-        logger.info(f"Saved trained threshold metadata to {meta_path}")
+        logger.info(f"Saved trained threshold and bounds metadata to {meta_path}")
 
-    def _load_trained_threshold(self) -> float:
+    def _load_trained_metadata(self):
         if not self._model_save_path:
-            raise ValueError("model_save_path is required to load trained threshold.")
+            raise ValueError("model_save_path is required to load trained metadata.")
         meta_path = self._model_save_path.replace(".pkl", "_metadata.json")
         if not os.path.exists(meta_path):
             raise FileNotFoundError(f"Threshold metadata not found at {meta_path}. Please TRAIN model first.")
         with open(meta_path, "r") as f:
             metadata = json.load(f)
-        return float(metadata.get("trained_threshold", 0.0))
+        return float(metadata.get("trained_threshold", 0.0)), metadata.get("calibrated_bounds", None)
