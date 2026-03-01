@@ -1,0 +1,27 @@
+# ==========================================
+# File & Folder yang TIDAK BOLEH ke GitHub
+# ==========================================
+
+# Kunci Rahasia (SANGAT PENTING!)
+.env
+
+# Kapsul Lingkungan Python
+.venv/
+venv/
+
+# Cache Python
+__pycache__/
+*.pyc
+*.pyo
+
+# Model AI Terlatih (Ukuran besar, tidak perlu di-commit)
+*.pkl
+
+# Log & Output
+logs/*.log
+logs/*.csv
+logs/*.json
+data/sandbox/
+
+# VSCode Settings
+.vscode/
